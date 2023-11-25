@@ -15,11 +15,11 @@ export function buildWebpackConfig(options: BuildOptions): Configuration {
       path: paths.build,
       clean: true,
     },
-    plugins: buildPlugins(paths),
+    plugins: buildPlugins(paths, isDev),
     module: {
       rules: buildLoaders(isDev),
     },
-    resolve: buildResolvers(),
+    resolve: buildResolvers(paths),
     devtool: isDev ? "inline-source-map" : undefined,
     devServer: isDev ? buildDevServer(options) : undefined,
   };
