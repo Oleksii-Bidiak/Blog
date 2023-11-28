@@ -7,7 +7,6 @@ import {
 } from 'webpack';
 import { BuildPaths } from './types/config';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import 'react-refresh-webpack-plugin'
 
 export function buildPlugins(
   paths: BuildPaths,
