@@ -25,7 +25,8 @@ export function buildLoaders(isDev: boolean): RuleSetRule[] {
         options: {
           //  modules: true,
           modules: {
-            auto: (resPath: string) => Boolean(resPath.includes('.module.scss')),
+            auto: (resPath: string) => 
+					Boolean(resPath.includes('.module.scss')),
 
             localIdentName: isDev
               ? '[path][name]__[local]--[hash:base64:5]'
