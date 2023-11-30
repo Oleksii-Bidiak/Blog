@@ -90,7 +90,7 @@ module.exports = {
         'no-param-reassign': ['off', { props: false }],
         'react/require-default-props': 'off',
         'react/react-in-jsx-scope': 'off',
-        'react/jsx-props-no-spreading': 'warn',
+        'react/jsx-props-no-spreading': 'off',
         'import/extensions': 'off',
         'react/function-component-definition': 'off',
         'react/jsx-filename-extension': [
@@ -98,10 +98,21 @@ module.exports = {
             { extensions: ['.js', '.jsx', '.tsx'] },
         ],
         'react/button-has-type': 'off',
-        'i18next/no-literal-string': ['error', { markupOnly: true }],
-		  'no-restricted-globals': 'off'
+        'i18next/no-literal-string': [
+            'error',
+            { markupOnly: true, ignoreAttribute: ['data-testid'] },
+        ],
+        'no-restricted-globals': 'off',
     },
     globals: {
         __IS_DEV__: true,
     },
+    overrides: [
+        {
+            files: ['**/src**.*.test.{ts,tsx}'],
+            rules: {
+                'i18next/no-literal-string': 'off',
+            },
+        },
+    ],
 }

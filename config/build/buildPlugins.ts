@@ -7,6 +7,7 @@ import {
 } from 'webpack'
 import { BuildPaths } from './types/config'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 
 export function buildPlugins(
     paths: BuildPaths,
@@ -26,6 +27,7 @@ export function buildPlugins(
             template: paths.html,
         }),
         new ProgressPlugin(),
+        new BundleAnalyzerPlugin(),
     ]
 
     if (isDev) {
