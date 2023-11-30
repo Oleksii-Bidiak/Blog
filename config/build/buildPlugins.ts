@@ -1,29 +1,40 @@
-import HTMLWebpackPlugin from 'html-webpack-plugin';
+import HTMLWebpackPlugin from 'html-webpack-plugin'
 import {
-  DefinePlugin,
-  HotModuleReplacementPlugin,
-  ProgressPlugin,
-  WebpackPluginInstance,
-} from 'webpack';
-import { BuildPaths } from './types/config';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+    DefinePlugin,
+    HotModuleReplacementPlugin,
+    ProgressPlugin,
+    WebpackPluginInstance,
+} from 'webpack'
+import { BuildPaths } from './types/config'
+import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 
 export function buildPlugins(
-  paths: BuildPaths,
-  isDev: boolean,
+    paths: BuildPaths,
+    isDev: boolean,
 ): WebpackPluginInstance[] {
-  return [
-    new HTMLWebpackPlugin({
-      template: paths.html,
-    }),
-    new ProgressPlugin(),
-    new MiniCssExtractPlugin({
-      filename: 'css/[name].[contenthash:8].css',
-      chunkFilename: 'css/[name].[contenthash:8].css',
-    }),
-    new DefinePlugin({
-      __IS_DEV__: JSON.stringify(isDev),
-    }),
-    isDev ? new HotModuleReplacementPlugin() : undefined,
-  ];
+    const miniCssExtractPlugin = new MiniCssExtractPlugin({
+        filename: 'css/[name].[contenthash:8].css',
+        chunkFilename: 'css/[name].[contenthash:8].css',
+    })
+    const hotModuleReplacementPlugin = new HotModuleReplacementPlugin()
+    const definePlugin = new DefinePlugin({
+        __IS_DEV__: JSON.stringify(isDev),
+    })
+
+    const plugins = [
+        new HTMLWebpackPlugin({
+            template: paths.html,
+        }),
+        new ProgressPlugin(),
+    ]
+
+    if (isDev) {
+        plugins.push(hotModuleReplacementPlugin, definePlugin)
+    }
+
+    if (!isDev) {
+        plugins.push(miniCssExtractPlugin)
+    }
+
+    return plugins
 }

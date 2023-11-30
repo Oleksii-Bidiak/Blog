@@ -99,6 +99,7 @@ module.exports = {
         ],
         'react/button-has-type': 'off',
         'i18next/no-literal-string': ['error', { markupOnly: true }],
+		  'no-restricted-globals': 'off'
     },
     globals: {
         __IS_DEV__: true,
