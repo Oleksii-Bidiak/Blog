@@ -27,7 +27,9 @@ export function buildPlugins(
             template: paths.html,
         }),
         new ProgressPlugin(),
-        new BundleAnalyzerPlugin(),
+        new BundleAnalyzerPlugin({
+            openAnalyzer: false,
+        }),
     ]
 
     if (isDev) {

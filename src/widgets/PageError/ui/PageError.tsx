@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classNames'
-import { Button } from 'shared/ui/Button'
+import { Button, ThemeButton } from 'shared/ui/Button'
 import cls from './pageError.module.scss'
 
 interface PageErrorProps {
@@ -19,7 +19,9 @@ export const PageError: FC<PageErrorProps> = props => {
     return (
         <div className={classNames(cls.pageError, {}, [className])}>
             {t('Непередбачувана помилка')}
-            <Button onClick={reloadPage}>{t('Оновити сторінку')}</Button>
+            <Button theme={ThemeButton.OUTLINE} onClick={reloadPage}>
+                {t('Оновити сторінку')}
+            </Button>
         </div>
     )
 }

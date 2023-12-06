@@ -7,7 +7,7 @@ interface HeaderProps {
     className?: string
 }
 
-export function Header({ className }: HeaderProps) {
+export const Header = ({ className }: HeaderProps) => {
     const { t } = useTranslation()
     return (
         <header className={classNames(cls.header, {}, [className])}>
