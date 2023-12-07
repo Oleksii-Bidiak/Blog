@@ -22,18 +22,23 @@ export function buildPlugins(
         __IS_DEV__: JSON.stringify(isDev),
     })
 
+    const bundleAnalyzerPlugin = new BundleAnalyzerPlugin({
+        openAnalyzer: false,
+    })
+
     const plugins = [
         new HTMLWebpackPlugin({
             template: paths.html,
         }),
         new ProgressPlugin(),
-        new BundleAnalyzerPlugin({
-            openAnalyzer: false,
-        }),
     ]
 
     if (isDev) {
-        plugins.push(hotModuleReplacementPlugin, definePlugin)
+        plugins.push(
+            hotModuleReplacementPlugin,
+            definePlugin,
+            bundleAnalyzerPlugin,
+        )
     }
 
     if (!isDev) {
