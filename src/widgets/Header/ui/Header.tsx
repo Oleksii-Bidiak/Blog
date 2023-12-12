@@ -12,12 +12,7 @@ export const Header = ({ className }: HeaderProps) => {
     return (
         <header className={classNames(cls.header, {}, [className])}>
             <div className={cls.links}>
-                <AppLink theme={AppLinkTheme.PRIMARY} to="/">
-                    {t('Головна')}
-                </AppLink>
-                <AppLink theme={AppLinkTheme.PRIMARY} to="/about">
-                    {t('Про нас')}
-                </AppLink>
+                /
             </div>
         </header>
     )
