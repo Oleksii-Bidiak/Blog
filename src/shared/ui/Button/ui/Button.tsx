@@ -3,8 +3,10 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './button.module.scss'
 
 export enum ButtonTheme {
-    CLEAR = 'clear',
-    OUTLINE = 'outline',
+	CLEAR = 'clear',
+	CLEAR_INVERTED = 'clearInverted',
+	OUTLINE = 'outline',
+    OUTLINE_INVERTED = 'outlineInverted',
     BACKGROUNG = 'background',
     BACKGROUNG_INVERTED = 'backgroundInverted',
 }
@@ -32,8 +34,6 @@ export const Button: FC<ButtonProps> = props => {
         size = ButtonSize.M,
         ...otherProps
     } = props
-
-	 console.log(square)
 
     const mods: Record<string, boolean> = {
         [cls.square]: square,

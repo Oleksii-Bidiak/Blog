@@ -4,12 +4,22 @@
 	padding: 6px 15px;
 }
 
-.clear {
+.clear,
+.clearInverted {
 	padding: 0;
+}
+
+.clearInverted {
+	color: var(--inverted-primary-color);
 }
 
 .outline {
 	border: 1px solid var(--primary-color);
+}
+
+.outlineInverted {
+	border: 1px solid var(--inverted-primary-color);
+	color: var(--inverted-primary-color);
 }
 
 .background {
@@ -41,14 +51,14 @@
 	width: var(--font-line-xl);
 }
 
-.size_m{
+.size_m {
 	font: var(--font-m);
 }
 
-.size_l{
+.size_l {
 	font: var(--font-l);
 }
 
-.size_xl{
+.size_xl {
 	font: var(--font-xl);
 }

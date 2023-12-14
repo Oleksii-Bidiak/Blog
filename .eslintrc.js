@@ -4,7 +4,12 @@ module.exports = {
         es2021: true,
         jest: true,
     },
-    extends: ['plugin:react/recommended', 'airbnb', 'plugin:prettier/recommended', 'plugin:i18next/recommended'],
+    extends: [
+        'plugin:react/recommended',
+        'airbnb',
+        'plugin:prettier/recommended',
+        'plugin:i18next/recommended',
+    ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaFeatures: {
@@ -13,7 +18,7 @@ module.exports = {
         ecmaVersion: 'latest',
         sourceType: 'module',
     },
-    plugins: ['react', '@typescript-eslint', 'i18next'],
+    plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks'],
     rules: {
         '@typescript-eslint/interface-name-prefix': 'off',
         '@typescript-eslint/explicit-function-return-type': 'off',
@@ -98,6 +103,8 @@ module.exports = {
             { markupOnly: true, ignoreAttribute: ['data-testid'] },
         ],
         'no-restricted-globals': 'off',
+        'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
+        'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies
     },
     globals: {
         __IS_DEV__: true,

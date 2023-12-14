@@ -2,9 +2,9 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import { useTheme } from './providers/ThemeProvider'
 import { AppRouter } from './providers/router'
 import { Header } from 'widgets/Header'
-import './styles/index.scss'
 import { Sidebar } from 'widgets/Sidebar'
-import { Suspense } from 'react'
+import { Suspense, useState } from 'react'
+import { Modal } from 'shared/ui/Modal'
 
 function App() {
     const { theme } = useTheme()
