@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
+import { useTheme } from 'app/providers/ThemeProvider'
 import {
     FC,
     MouseEvent,
@@ -24,6 +25,8 @@ const ANIMATION_DELAY = 300
 
 export const Modal: FC<ModalProps> = props => {
     const { className, children, isOpen, onClose } = props
+
+    const { theme } = useTheme()
 
     const [isClosing, setIsClosing] = useState<boolean>(false)
     const timerRef = useRef<ReturnType<typeof setTimeout>>()
@@ -68,7 +71,7 @@ export const Modal: FC<ModalProps> = props => {
 
     return (
         <Portal>
-            <div className={classNames(cls.modal, mods, [className])}>
+            <div className={classNames(cls.modal, mods, [className, theme, 'app_modal'])}>
                 <div className={cls.overlay} onClick={closeHandler}>
                     <div className={cls.content} onClick={onContetntClick}>
                         {children}
