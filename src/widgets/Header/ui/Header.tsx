@@ -1,4 +1,5 @@
 /* eslint-disable i18next/no-literal-string */
+import { LoginModal } from 'features/AuthByUsername'
 import { useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classNames'
@@ -14,8 +15,12 @@ export const Header = ({ className }: HeaderProps) => {
     const [isOpen, setIsOpen] = useState<boolean>(false)
     const { t } = useTranslation()
 
-    const onToggleModal = useCallback(() => {
-        setIsOpen(prev => !prev)
+    const onCloseModal = useCallback(() => {
+        setIsOpen(false)
+    }, [])
+
+    const onShowModal = useCallback(() => {
+        setIsOpen(true)
     }, [])
 
     return (
@@ -23,15 +28,10 @@ export const Header = ({ className }: HeaderProps) => {
             <Button
                 theme={ButtonTheme.CLEAR_INVERTED}
                 className={cls.links}
-                onClick={onToggleModal}>
+                onClick={onShowModal}>
                 {t('Вхід')}
             </Button>
-            <Modal isOpen={isOpen} onClose={onToggleModal}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde ad
-                possimus autem! Error fugiat officia ab iure! Nobis unde fugiat
-                in cupiditate explicabo nemo autem, beatae ducimus, iste, soluta
-                pariatur!
-            </Modal>
+            <LoginModal isOpen={isOpen} onClose={onCloseModal} />
         </header>
     )
 }
