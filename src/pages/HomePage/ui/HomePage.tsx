@@ -8,12 +8,7 @@ function HomePage() {
     const onChange = (val: string) => {
         setValue(val)
     }
-    return (
-        <div>
-            {t('Головна')}
-            <Input value={value} onChange={onChange} />
-        </div>
-    )
+    return <div>{t('Головна')}</div>
 }
 
 export default HomePage
