@@ -3,9 +3,9 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './button.module.scss'
 
 export enum ButtonTheme {
-	CLEAR = 'clear',
-	CLEAR_INVERTED = 'clearInverted',
-	OUTLINE = 'outline',
+    CLEAR = 'clear',
+    CLEAR_INVERTED = 'clearInverted',
+    OUTLINE = 'outline',
     OUTLINE_INVERTED = 'outlineInverted',
     BACKGROUNG = 'background',
     BACKGROUNG_INVERTED = 'backgroundInverted',
@@ -22,6 +22,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     theme?: ButtonTheme
     square?: boolean
     size?: ButtonSize
+    disabled?: boolean
 }
 
 export const Button: FC<ButtonProps> = props => {
@@ -32,11 +33,13 @@ export const Button: FC<ButtonProps> = props => {
         type,
         square,
         size = ButtonSize.M,
+        disabled,
         ...otherProps
     } = props
 
     const mods: Record<string, boolean> = {
         [cls.square]: square,
+        [cls.disabled]: disabled,
     }
 
     return (
@@ -47,6 +50,7 @@ export const Button: FC<ButtonProps> = props => {
                 cls[theme],
                 cls[size],
             ])}
+            disabled={disabled}
             {...otherProps}>
             {children}
         </button>

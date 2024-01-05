@@ -40,14 +40,14 @@ export const OutlineSizeL = Template.bind({})
 OutlineSizeL.args = {
     children: 'OutlineSizeL',
     theme: ButtonTheme.OUTLINE,
-	 size: ButtonSize.L
+    size: ButtonSize.L,
 }
 
 export const OutlineSizeXL = Template.bind({})
 OutlineSizeXL.args = {
     children: 'OutlineSizeXL',
     theme: ButtonTheme.OUTLINE,
-	 size: ButtonSize.XL
+    size: ButtonSize.XL,
 }
 
 export const OutlineDark = Template.bind({})
@@ -91,3 +91,18 @@ SquareSizeXL.args = {
     square: true,
     size: ButtonSize.XL,
 }
+
+export const Disabled = Template.bind({})
+Disabled.args = {
+    children: 'Disabled',
+    theme: ButtonTheme.CLEAR,
+    disabled: true,
+}
+
+export const DisabledDark = Template.bind({})
+DisabledDark.args = {
+    children: 'DisabledDark',
+    theme: ButtonTheme.CLEAR_INVERTED,
+    disabled: true,
+}
+DisabledDark.decorators = [ThemeDecorator(Theme.DARK)]
