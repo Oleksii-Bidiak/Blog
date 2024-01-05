@@ -2,5 +2,6 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 npx lint-staged
+npm run lint:scss
 npm run storybook:build
 npm run test:ui:ci
