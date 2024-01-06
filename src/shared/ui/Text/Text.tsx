@@ -15,9 +15,9 @@ interface TextProps {
 }
 
 export const Text = memo((props: TextProps) => {
-    const { className, text, title, theme } = props
+    const { className, text, title, theme = TextTheme.PRIMARY } = props
     return (
-        <div className={classNames(cls.textBlock, {}, [className, theme])}>
+        <div className={classNames(cls.textBlock, {}, [className, cls[theme]])}>
             {title && <p className={cls.title}>{title}</p>}
             {text && <p className={cls.text}>{text}</p>}
         </div>

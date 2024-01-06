@@ -51,7 +51,7 @@ export const Header = ({ className }: HeaderProps) => {
                 onClick={onShowModal}>
                 {t('Вхід')}
             </Button>
-            <LoginModal isOpen={isOpen} onClose={onCloseModal} />
+            {isOpen && <LoginModal isOpen={isOpen} onClose={onCloseModal} />}
         </header>
     )
 }

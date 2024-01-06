@@ -31,14 +31,11 @@ export function buildPlugins(
             template: paths.html,
         }),
         new ProgressPlugin(),
+        bundleAnalyzerPlugin,
     ]
 
     if (isDev) {
-        plugins.push(
-            hotModuleReplacementPlugin,
-            definePlugin,
-            bundleAnalyzerPlugin,
-        )
+        plugins.push(hotModuleReplacementPlugin, definePlugin)
     }
 
     if (!isDev) {

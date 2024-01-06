@@ -10,12 +10,15 @@
     --font-size-xl: 32px;
     --font-line-xl: 40px;
     --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
+
     // Розміри
     --header-height: 50px;
     --sidebar-width: 300px;
     --sidebar-collapsed-width: 80px;
+
     // z - індекси
     --modal-z-index: 10;
+
     // Колори
     --overlay-color: rgb(0 0 0 / 60%);
     --red-light: #f00;
