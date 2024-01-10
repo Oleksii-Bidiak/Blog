@@ -1,9 +1,5 @@
 import { StateSchema } from './StateSchema'
-import {
-    configureStore,
-    getDefaultMiddleware,
-    ReducersMapObject,
-} from '@reduxjs/toolkit'
+import { configureStore, ReducersMapObject } from '@reduxjs/toolkit'
 import { counterReducer } from 'entities/Counter'
 import { userReduser } from 'entities/User'
 import { createReducerManager } from './reducerManager'
