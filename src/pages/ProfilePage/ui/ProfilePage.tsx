@@ -6,8 +6,6 @@ import {
     ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader'
 
-import cls from './profilePage.module.scss'
-
 const redusers: ReducersList = {
     profile: profileReducer,
 }
@@ -21,9 +19,7 @@ const ProfilePage: FC<ProfilePageProps> = props => {
     const { className, children } = props
     return (
         <DynamicModuleLoader reducers={redusers} removeAfterUnmount>
-            <div className={classNames(cls.profilePage, {}, [className])}>
-                {children}
-            </div>
+            <div className={classNames('', {}, [className])}>{children}</div>
         </DynamicModuleLoader>
     )
 }
