@@ -10,5 +10,6 @@
 	"Введіть пароль": "password",
 	"Форма авторизіції": "Authorization form",
 	"Неправильний логін або пароль": "Incorrect login or password",
-	"Вихід": "Logout"
+	"Вихід": "Logout",
+	"Профіль": "Profile"
 }

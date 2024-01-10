@@ -1,7 +1,7 @@
 /* eslint-disable i18next/no-literal-string */
 import { getAuthUserData, userActions } from 'entities/User'
 import { LoginModal } from 'features/AuthByUsername'
-import { useCallback, useState } from 'react'
+import { memo, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { classNames } from 'shared/lib/classNames/classNames'
@@ -12,7 +12,7 @@ interface HeaderProps {
     className?: string
 }
 
-export const Header = ({ className }: HeaderProps) => {
+export const Header = memo(({ className }: HeaderProps) => {
     const [isOpen, setIsOpen] = useState<boolean>(false)
     const { t } = useTranslation()
     const authData = useSelector(getAuthUserData)
@@ -54,4 +54,4 @@ export const Header = ({ className }: HeaderProps) => {
             {isOpen && <LoginModal isOpen={isOpen} onClose={onCloseModal} />}
         </header>
     )
-}
+})

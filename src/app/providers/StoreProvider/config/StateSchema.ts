@@ -8,6 +8,7 @@ import { UserSchema } from 'entities/User'
 import { CounterSchema } from 'entities/Counter'
 import { LoginSchema } from 'features/AuthByUsername'
 import { EnhancedStore } from '@reduxjs/toolkit'
+import { ProfileSchema } from 'entities/Profile'
 
 export interface StateSchema {
     counter: CounterSchema
@@ -15,6 +16,7 @@ export interface StateSchema {
 
     //  Асинхронні редюсери
     loginForm?: LoginSchema
+    profile?: ProfileSchema
 }
 
 export type StateSchemaKey = keyof StateSchema

@@ -1,0 +1,44 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - var(--header-height));
+    width: var(--sidebar-width);
+    background-color: var(--inverted-bg-color);
+    position: relative;
+    padding: 10px 20px;
+    transition: width 0.3s ease 0s;
+}
+
+.sidebarNav {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    flex: 1 1 auto;
+}
+
+.collapsedBtn {
+    position: absolute;
+    bottom: 32px;
+    right: -32px;
+}
+
+.switchers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.collapsed {
+    width: var(--sidebar-collapsed-width);
+
+    .switchers {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .link {
+        opacity: 0;
+        width: 0;
+    }
+}
