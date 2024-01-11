@@ -1,10 +1,11 @@
-import { profileReducer } from 'entities/Profile'
-import { FC, ReactNode } from 'react'
+import { fetchProfileData, ProfileCard, profileReducer } from 'entities/Profile'
+import { FC, ReactNode, useEffect } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import {
     DynamicModuleLoader,
     ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader'
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 
 const redusers: ReducersList = {
     profile: profileReducer,
@@ -17,9 +18,17 @@ interface ProfilePageProps {
 
 const ProfilePage: FC<ProfilePageProps> = props => {
     const { className, children } = props
+    const dispatch = useAppDispatch()
+
+    useEffect(() => {
+        dispatch(fetchProfileData())
+    }, [dispatch])
+
     return (
         <DynamicModuleLoader reducers={redusers} removeAfterUnmount>
-            <div className={classNames('', {}, [className])}>{children}</div>
+            <div className={classNames('', {}, [className])}>
+                <ProfileCard />
+            </div>
         </DynamicModuleLoader>
     )
 }
