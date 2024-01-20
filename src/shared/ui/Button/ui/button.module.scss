@@ -17,6 +17,11 @@
     border: 1px solid var(--primary-color);
 }
 
+.outlineRed {
+    color: var(--red-light);
+    border: 1px solid var(--red-light);
+}
+
 .outlineInverted {
     border: 1px solid var(--inverted-primary-color);
     color: var(--inverted-primary-color);

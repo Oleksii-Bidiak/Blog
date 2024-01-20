@@ -5,17 +5,24 @@
     flex-direction: column;
     gap: 30px;
 
-    .header {
+    .avatarWrapper {
         display: flex;
-    }
-
-    .editBtn {
-        margin-left: auto;
+        justify-content: center;
     }
 
     .data {
         display: flex;
         flex-direction: column;
         gap: 10px;
+    }
+
+    &.loading {
+        align-items: center;
+        justify-content: center;
+        height: 300px;
+    }
+
+    &.editing {
+        border: 2px solid var(--inverted-primary-color);
     }
 }

@@ -1,9 +1,10 @@
 export type Mods = Record<string, boolean | string | undefined>
+export type Additionals = Array<string | undefined>
 
 export const classNames = (
     cls: string,
     mods: Mods = {},
-    additionals: Array<string | undefined> = [],
+    additionals: Additionals = [],
 ): string =>
     [
         cls,

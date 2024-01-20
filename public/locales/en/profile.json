@@ -1,6 +1,15 @@
 {
 	"Профіль": "Profile",
 	"Редагувати": "Edit",
-	"Ваше ім'я": "Your firstname",
-	"Ваше прізвище": "Your lastname"
+	"Ім'я": "Firstname",
+	"Прізвище": "Lastname",
+	"Вік": "Age",
+	"Місто": "City",
+	"Ім'я користувача": "Username",
+	"Посилання на аватар": "Link to avatar",
+	"Виникла помилка": "An error occurred",
+	"Спробуйте перезавантажити сторінку": "Try reloading the page",
+	"Відміна": "Сancel",
+	"Зберегти": "Save",
+	"Валюта": "Currency"
 }
