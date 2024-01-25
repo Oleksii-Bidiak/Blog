@@ -15,9 +15,9 @@ Blogging site
 1. Clone the repository.
 2. Run the `npm install` command.
 3. Run the `npm start` command.
+
 Runs the app in the development mode.
 Open http://localhost:3000 to view it in your browser.
-
 The page will reload when you make changes.
 
 ## Функціонал, Що Вже Реалізовано
