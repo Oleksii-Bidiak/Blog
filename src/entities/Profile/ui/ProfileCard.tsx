@@ -15,7 +15,7 @@ interface ProfileCardProps {
     data: Profile | undefined
     isLoading: boolean | undefined
     error: string | undefined
-    readonly: boolean
+    readonly: boolean | undefined
     onChangeFirstName?: (value?: string) => void
     onChangeLastName?: (value?: string) => void
     onChangeAge?: (value?: string) => void
