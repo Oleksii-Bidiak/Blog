@@ -11,5 +11,9 @@
 	"Спробуйте перезавантажити сторінку": "Try reloading the page",
 	"Відміна": "Сancel",
 	"Зберегти": "Save",
-	"Валюта": "Currency"
+	"Валюта": "Currency",
+	"Помилка при збереженні": "Error saving",
+	"Некоректний вік (введіть число)": "Invalid age (enter a number)",
+	"Ім'я та прізвище обов'язкові": "Name and surname are mandatory",
+	"Дані не вказані": "Data not specified"
 }

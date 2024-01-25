@@ -11,7 +11,7 @@ interface Configuration extends WebpackConfiguration {
 }
 
 export function buildWebpackConfig(options: BuildOptions): Configuration {
-    const { mode, paths, isDev, apiUrl } = options
+    const { mode, paths, isDev, apiUrl, project } = options
     return {
         mode,
         entry: paths.entry,
@@ -20,7 +20,7 @@ export function buildWebpackConfig(options: BuildOptions): Configuration {
             path: paths.build,
             clean: true,
         },
-        plugins: buildPlugins(paths, isDev, apiUrl),
+        plugins: buildPlugins(paths, isDev, apiUrl, project),
         module: {
             rules: buildLoaders(isDev),
         },

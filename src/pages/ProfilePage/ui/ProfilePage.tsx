@@ -1,4 +1,4 @@
-import { FC, ReactNode, useCallback, useEffect } from 'react'
+import { FC, ReactNode, useCallback, useEffect, useMemo } from 'react'
 import { useSelector } from 'react-redux'
 import {
     fetchProfileData,
@@ -6,9 +6,11 @@ import {
     getProfileForm,
     getProfileLoading,
     getProfileReadOnly,
+    getValidateProfileErrors,
     profileActions,
     ProfileCard,
     profileReducer,
+    ValidateProfileErrors,
 } from 'entities/Profile'
 import { classNames } from 'shared/lib/classNames/classNames'
 import {
@@ -19,6 +21,9 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader'
 import { Currency } from 'entities/Currency'
 import { Country } from 'entities/Country'
+import { Text, TextTheme } from 'shared/ui/Text/Text'
+import { useTranslation } from 'react-i18next'
+import { TFunction } from 'i18next'
 
 const redusers: ReducersList = {
     profile: profileReducer,
@@ -31,12 +36,14 @@ interface ProfilePageProps {
 
 const ProfilePage: FC<ProfilePageProps> = props => {
     const { className, children } = props
+    const { t } = useTranslation('profile')
     const dispatch = useAppDispatch()
 
     const formData = useSelector(getProfileForm)
     const error = useSelector(getProfileError)
     const isLoading = useSelector(getProfileLoading)
     const readonly = useSelector(getProfileReadOnly)
+    const validateErrors = useSelector(getValidateProfileErrors)
 
     const onChangeFirstName = useCallback(
         (value?: string) => {
@@ -102,14 +109,42 @@ const ProfilePage: FC<ProfilePageProps> = props => {
         [dispatch],
     )
 
+    const ValidateProfileTranslates = useMemo(() => {
+        const errors: Record<ValidateProfileErrors, any> = {
+            [ValidateProfileErrors.SERVER_ERROR]: t('Помилка при збереженні'),
+            [ValidateProfileErrors.INNCORECT_AGE]: t(
+                'Некоректний вік (введіть число)',
+            ),
+            [ValidateProfileErrors.INNCORECT_USER_DATA]: t(
+                "Ім'я та прізвище обов'язкові",
+            ),
+            [ValidateProfileErrors.NO_DATA]: t('Дані не вказані'),
+        }
+
+        return errors
+    }, [t])
+
+    const validateErrorsList = useMemo(() => {
+        return validateErrors?.map(err => (
+            <Text
+                key={err}
+                theme={TextTheme.ERROR}
+                text={ValidateProfileTranslates[err]}
+            />
+        ))
+    }, [ValidateProfileTranslates, validateErrors])
+
     useEffect(() => {
-        dispatch(fetchProfileData())
+        if (__PROJECT__ !== 'storybook') {
+            dispatch(fetchProfileData())
+        }
     }, [dispatch])
 
     return (
         <DynamicModuleLoader reducers={redusers} removeAfterUnmount>
             <div className={classNames('', {}, [className])}>
                 <ProfilePageHeader />
+                {validateErrors?.length && validateErrorsList}
                 <ProfileCard
                     data={formData}
                     isLoading={isLoading}

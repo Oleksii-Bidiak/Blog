@@ -9,6 +9,7 @@ const initialState: ProfileSchema = {
     readonly: true,
     error: undefined,
     data: undefined,
+    form: undefined,
 }
 
 export const profileSlice = createSlice({
@@ -21,6 +22,7 @@ export const profileSlice = createSlice({
         canselEdit: state => {
             state.readonly = true
             state.form = state.data
+            state.validateErrors = undefined
         },
         updateProfile: (
             state: ProfileSchema,
@@ -53,7 +55,7 @@ export const profileSlice = createSlice({
 
             .addCase(updateProfileData.pending, (state, aciton) => {
                 state.isLoading = true
-                state.error = undefined
+                state.validateErrors = undefined
             })
             .addCase(
                 updateProfileData.fulfilled,
@@ -62,11 +64,12 @@ export const profileSlice = createSlice({
                     state.data = aciton.payload
                     state.form = aciton.payload
                     state.readonly = true
+                    state.validateErrors = undefined
                 },
             )
             .addCase(updateProfileData.rejected, (state, aciton) => {
                 state.isLoading = false
-                state.error = aciton.payload
+                state.validateErrors = aciton.payload
             })
     },
 })

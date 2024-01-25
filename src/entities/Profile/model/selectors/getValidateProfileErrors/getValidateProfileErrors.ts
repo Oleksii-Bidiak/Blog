@@ -2,7 +2,7 @@ import { createSelector } from '@reduxjs/toolkit'
 import { getProfile } from '../getProfile/getProfile'
 import { ProfileSchema } from '../../types/profile'
 
-export const getProfileReadOnly = createSelector(
+export const getValidateProfileErrors = createSelector(
     getProfile,
-    (profile: ProfileSchema | undefined) => profile?.readonly || undefined,
+    (profile: ProfileSchema | undefined) => profile?.validateErrors,
 )

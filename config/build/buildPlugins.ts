@@ -12,7 +12,8 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 export function buildPlugins(
     paths: BuildPaths,
     isDev: boolean,
-	 apiUrl: string
+    apiUrl: string,
+    project: string,
 ): WebpackPluginInstance[] {
     const miniCssExtractPlugin = new MiniCssExtractPlugin({
         filename: 'css/[name].[contenthash:8].css',
@@ -21,7 +22,8 @@ export function buildPlugins(
     const hotModuleReplacementPlugin = new HotModuleReplacementPlugin()
     const definePlugin = new DefinePlugin({
         __IS_DEV__: JSON.stringify(isDev),
-		  __API__: JSON.stringify(apiUrl)
+        __API__: JSON.stringify(apiUrl),
+        __PROJECT__: JSON.stringify(project),
     })
 
     const bundleAnalyzerPlugin = new BundleAnalyzerPlugin({
