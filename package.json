@@ -5,6 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "start": "webpack serve --env port=3000",
+    "start:dev": "concurrently \"npm start\" \"npm run start:dev:server\"",
     "start:dev:server": "node ./json-server/index.js",
     "build:dev": "webpack --env mode=development",
     "build:prod": "webpack --env mode=production",
@@ -31,6 +32,7 @@
     "@babel/preset-env": "^7.23.3",
     "@babel/preset-react": "^7.23.3",
     "@babel/preset-typescript": "^7.23.3",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.11",
     "@storybook/addon-actions": "^6.4.19",
     "@storybook/addon-essentials": "^6.4.19",
     "@storybook/addon-interactions": "^6.4.19",
@@ -73,6 +75,7 @@
     "lint-staged": "^15.2.0",
     "loki": "^0.33.1",
     "mini-css-extract-plugin": "^2.5.3",
+    "react-refresh": "^0.14.0",
     "reg-cli": "^0.17.7",
     "regenerator-runtime": "^0.14.0",
     "sass": "^1.49.9",
@@ -91,6 +94,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.0",
     "axios": "^1.6.2",
+    "concurrently": "^8.2.2",
     "i18next": "^23.7.6",
     "i18next-browser-languagedetector": "^7.2.0",
     "i18next-http-backend": "^2.4.2",

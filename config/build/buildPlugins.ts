@@ -8,6 +8,7 @@ import {
 import { BuildPaths } from './types/config'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 
 export function buildPlugins(
     paths: BuildPaths,
@@ -30,6 +31,8 @@ export function buildPlugins(
         openAnalyzer: false,
     })
 
+    const reactRefreshWebpackPlugin = new ReactRefreshWebpackPlugin()
+
     const plugins = [
         new HTMLWebpackPlugin({
             template: paths.html,
@@ -42,6 +45,7 @@ export function buildPlugins(
             hotModuleReplacementPlugin,
             definePlugin,
             bundleAnalyzerPlugin,
+            reactRefreshWebpackPlugin,
         )
     }
 

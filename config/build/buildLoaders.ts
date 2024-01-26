@@ -1,20 +1,12 @@
 import { RuleSetRule } from 'webpack'
-import { buildCssLoader } from './loaders/buildCssLoader/buildCssLoader'
-import { buildSvgLoader } from './loaders/buildSvgLoader/buildSvgLoader'
+import { buildCssLoader } from './loaders/buildCssLoader'
+import { buildSvgLoader } from './loaders/buildSvgLoader'
+import { buildBabelLoader } from './loaders/buildBabelLoader'
 
 export function buildLoaders(isDev: boolean): RuleSetRule[] {
     const svgLoader = buildSvgLoader()
 
-    const babelLoader = {
-        test: /\.(js|ts|jsx|tsx)$/,
-        exclude: /node_modules/,
-        use: {
-            loader: 'babel-loader',
-            options: {
-                presets: ['@babel/preset-env'],
-            },
-        },
-    }
+    const babelLoader = buildBabelLoader(isDev)
 
     const fileLoader = {
         test: /\.(png|jpe?g|gif|woff|woff2)$/i,
