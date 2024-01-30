@@ -1,8 +1,8 @@
 import { createSelector } from '@reduxjs/toolkit'
 import { getArticleDetails } from '../getArticleDetails/getArticleDetails'
-import { ArticleDetailsShema } from '../../types/articleDetailsShema'
+import { ArticleDetailsSchema } from '../../types/articleDetailsSchema'
 
 export const getArticleDetailsIsLoading = createSelector(
     getArticleDetails,
-    (article: ArticleDetailsShema | undefined) => article?.isLoading,
+    (article: ArticleDetailsSchema | undefined) => article?.isLoading,
 )
