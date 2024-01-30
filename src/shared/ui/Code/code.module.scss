@@ -1,0 +1,23 @@
+.code {
+    position: relative;
+    border: 1px solid var(--primary-color);
+    padding: 20px;
+    background: var(--code-bg);
+    overflow: auto;
+}
+
+.copyBtn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    transition: stroke-opacity 0.3s ease 0s;
+    cursor: pointer;
+
+    &:hover {
+        stroke-opacity: 0.8;
+    }
+
+    path {
+        stroke: var(--primary-color);
+    }
+}

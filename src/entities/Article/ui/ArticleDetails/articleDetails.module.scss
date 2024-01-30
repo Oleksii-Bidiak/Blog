@@ -1,0 +1,29 @@
+.articleDetails {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    margin-bottom: 16px;
+}
+
+.avatar {
+    width: 100%;
+    margin-bottom: 16px;
+    display: flex;
+
+    img {
+        margin: 0 auto;
+    }
+}
+
+.articleInfo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.block:not(:last-child) {
+    margin-bottom: 16px;
+}
