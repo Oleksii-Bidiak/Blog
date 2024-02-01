@@ -23,7 +23,7 @@ export enum AppRoutes {
 export const RoutePath: Record<AppRoutes, string> = {
     [AppRoutes.HOME]: '/',
     [AppRoutes.ABOUT]: '/about',
-    [AppRoutes.PRORFILE]: '/profile',
+    [AppRoutes.PRORFILE]: '/profile/',
     [AppRoutes.ARTICLES]: '/articles',
     [AppRoutes.ARTICLE_DETAILS]: '/articles/',
     //  last
@@ -40,7 +40,7 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
         element: <AboutPage />,
     },
     [AppRoutes.PRORFILE]: {
-        path: RoutePath.profile,
+        path: `${RoutePath.profile}:id`,
         element: <ProfilePage />,
         authOnly: true,
     },

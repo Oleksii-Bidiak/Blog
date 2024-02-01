@@ -6,6 +6,11 @@
         flex: 1 1 auto;
     }
 
+    .btnWrapper {
+        display: flex;
+        gap: 20px;
+    }
+
     &:not(:last-child) {
         margin-bottom: 20px;
     }

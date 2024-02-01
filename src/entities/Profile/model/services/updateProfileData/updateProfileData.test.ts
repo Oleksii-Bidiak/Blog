@@ -12,6 +12,7 @@ const data = {
     city: 'Rivne',
     country: Country.Ukraine,
     currency: Currency.GRN,
+    id: '1',
 }
 
 describe('updateProfileData.test', () => {

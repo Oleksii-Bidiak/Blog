@@ -1,6 +1,6 @@
 import { createSelector } from '@reduxjs/toolkit'
-import { ArticleDetailsSchema } from '../../types/ArticleDetailsSchema'
 import { getArticleDetails } from '../getArticleDetails/getArticleDetails'
+import { ArticleDetailsSchema } from '../../types/articleDetailsSchema'
 
 export const getArticleDetailsData = createSelector(
     getArticleDetails,

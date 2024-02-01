@@ -18,7 +18,7 @@ import {
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import cls from './loginForm.module.scss'
 
-interface LoginFormProps {
+export interface LoginFormProps {
     className?: string
     onSuccsses: () => void
 }

@@ -5,10 +5,12 @@ import cls from './commentCard.module.scss'
 import { Avatar } from 'shared/ui/Avatar/Avatar'
 import { Text } from 'shared/ui/Text/Text'
 import { Sceleton } from 'shared/ui/Sceleton/Sceleton'
+import { AppLink } from 'shared/ui/AppLink'
+import { RoutePath } from 'shared/config/routeConfig/routeConfig'
 
 interface CommentCardProps {
     className?: string
-    comment: Comment
+    comment?: Comment
     isLoading?: boolean
 }
 
@@ -30,14 +32,20 @@ export const CommentCard = memo((props: CommentCardProps) => {
         )
     }
 
+    if (!comment) {
+        return null
+    }
+
     return (
         <div className={classNames(cls.commentCard, mods, additionals)}>
-            <div className={cls.header}>
+            <AppLink
+                to={`${RoutePath.profile}${comment.user.id}`}
+                className={cls.header}>
                 {comment.user.avatar && (
                     <Avatar size={30} alt="avatar" src={comment.user.avatar} />
                 )}
                 <Text title={comment.user.username} />
-            </div>
+            </AppLink>
             <Text text={comment.text} />
         </div>
     )

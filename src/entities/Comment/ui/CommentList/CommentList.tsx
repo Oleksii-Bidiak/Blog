@@ -30,6 +30,16 @@ export const CommentList = memo((props: CommentListProps) => {
         ))
     }, [comments, isLoading])
 
+    if (isLoading) {
+        return (
+            <div className={classNames(cls.commentList, mods, additionals)}>
+                <CommentCard className={cls.comment} isLoading />
+                <CommentCard className={cls.comment} isLoading />
+                <CommentCard className={cls.comment} isLoading />
+            </div>
+        )
+    }
+
     return (
         <div className={classNames(cls.commentList, mods, additionals)}>
             {comments?.length ? (

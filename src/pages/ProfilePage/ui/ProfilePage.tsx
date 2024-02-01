@@ -1,4 +1,4 @@
-import { FC, ReactNode, useCallback, useEffect, useMemo } from 'react'
+import { FC, ReactNode, useCallback, useMemo } from 'react'
 import { useSelector } from 'react-redux'
 import {
     fetchProfileData,
@@ -23,7 +23,8 @@ import { Currency } from 'entities/Currency'
 import { Country } from 'entities/Country'
 import { Text, TextTheme } from 'shared/ui/Text/Text'
 import { useTranslation } from 'react-i18next'
-import { TFunction } from 'i18next'
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
+import { useParams } from 'react-router-dom'
 
 const redusers: ReducersList = {
     profile: profileReducer,
@@ -44,6 +45,7 @@ const ProfilePage: FC<ProfilePageProps> = props => {
     const isLoading = useSelector(getProfileLoading)
     const readonly = useSelector(getProfileReadOnly)
     const validateErrors = useSelector(getValidateProfileErrors)
+    const { id } = useParams<{ id: string }>()
 
     const onChangeFirstName = useCallback(
         (value?: string) => {
@@ -134,11 +136,11 @@ const ProfilePage: FC<ProfilePageProps> = props => {
         ))
     }, [ValidateProfileTranslates, validateErrors])
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchProfileData())
+    useInitialEffect(() => {
+        if (id) {
+            dispatch(fetchProfileData(id))
         }
-    }, [dispatch])
+    })
 
     return (
         <DynamicModuleLoader reducers={redusers} removeAfterUnmount>
