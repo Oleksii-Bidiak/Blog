@@ -29,6 +29,11 @@ const data: Article = {
     views: 1022,
     createdAt: '27.01.2024',
     type: [ArticleType.IT],
+    user: {
+        id: '1',
+        username: 'admin',
+        avatar: 'https://images.unsplash.com/photo-1534665482403-a909d0d97c67',
+    },
     blocks: [
         {
             id: '1',

@@ -1,11 +1,20 @@
-import { Article, ArticleList, ArticleView } from 'entities/Article'
-import { memo } from 'react'
-import { useTranslation } from 'react-i18next'
-import { Additionals, Mods, classNames } from 'shared/lib/classNames/classNames'
+import React from 'react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-interface ArticlesPageProps {
-    className?: string
-}
+import { ArticleList } from './ArticleList'
+import { Article, ArticleView } from '../../model/types/article'
+
+export default {
+    title: 'entities/Article/ArticleList',
+    component: ArticleList,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
+} as ComponentMeta<typeof ArticleList>
+
+const Template: ComponentStory<typeof ArticleList> = args => (
+    <ArticleList {...args} />
+)
 
 const article = {
     id: '1',
@@ -82,22 +91,36 @@ const article = {
     ],
 } as Article
 
-const ArticlesPage = (props: ArticlesPageProps) => {
-    const { className } = props
-    const { t } = useTranslation('article')
-    const mods: Mods = {}
-    const additionals: Additionals = [className]
-    return (
-        <div className={classNames('', mods, additionals)}>
-            <ArticleList
-                view={ArticleView.BIG}
-                articles={new Array(16).fill(0).map((item, index) => ({
-                    ...article,
-                    id: String(index),
-                }))}
-            />
-        </div>
-    )
+export const LoadingBig = Template.bind({})
+LoadingBig.args = {
+    articles: [],
+    isLoading: true,
+    view: ArticleView.BIG,
 }
 
-export default memo(ArticlesPage)
+export const LoadingSmall = Template.bind({})
+LoadingSmall.args = {
+    articles: [],
+    isLoading: true,
+    view: ArticleView.SMALL,
+}
+
+export const ListSmall = Template.bind({})
+ListSmall.args = {
+    articles: new Array(9).fill(0).map((item, index) => ({
+        ...article,
+        id: String(index),
+    })),
+    isLoading: false,
+    view: ArticleView.SMALL,
+}
+
+export const ListBig = Template.bind({})
+ListBig.args = {
+    articles: new Array(9).fill(0).map((item, index) => ({
+        ...article,
+        id: String(index),
+    })),
+    isLoading: false,
+    view: ArticleView.BIG,
+}

@@ -1,26 +1,28 @@
-import { ArticleDetails } from 'entities/Article'
-import { CommentList } from 'entities/Comment'
 import { memo, useCallback } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
-import { useParams } from 'react-router-dom'
-import { Additionals, Mods, classNames } from 'shared/lib/classNames/classNames'
-import { Text } from 'shared/ui/Text/Text'
-import cls from './articleDetailsPage.module.scss'
-import {
-    DynamicModuleLoader,
-    ReducersList,
-} from 'shared/lib/components/DynamicModuleLoader'
+import { addCommentForArticle } from '../model/services/addCommentForArticle/addCommentForArticle'
+import { getArticleDetailsCommentsLoading } from '../model/selectors/getArticleDetailsCommentsLoading/getArticleDetailsCommentsLoading'
+import { getArticleDetailsCommentsError } from '../model/selectors/getArticleDetailsCommentsError/getArticleDetailsCommentsError'
+import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId'
 import {
     articleDetailsCommentsReducer,
     getArticleComments,
 } from '../model/slice/ArticleDetailsCommentSlice'
-import { useDispatch, useSelector } from 'react-redux'
-import { getArticleDetailsCommentsLoading } from '../model/selectors/getArticleDetailsCommentsLoading/getArticleDetailsCommentsLoading'
-import { getArticleDetailsCommentsError } from '../model/selectors/getArticleDetailsCommentsError/getArticleDetailsCommentsError'
-import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId'
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
 import { AddCommentForm } from 'features/addCommentForm'
-import { addCommentForArticle } from '../model/services/addCommentForArticle/addCommentForArticle'
+import { ArticleDetails } from 'entities/Article'
+import { CommentList } from 'entities/Comment'
+import { Additionals, Mods, classNames } from 'shared/lib/classNames/classNames'
+import { Text } from 'shared/ui/Text/Text'
+import {
+    DynamicModuleLoader,
+    ReducersList,
+} from 'shared/lib/components/DynamicModuleLoader'
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
+import { Button, ButtonTheme } from 'shared/ui/Button'
+import { RoutePath } from 'shared/config/routeConfig/routeConfig'
+import cls from './articleDetailsPage.module.scss'
 
 interface ArticleDetailsPageProps {
     className?: string
@@ -35,12 +37,18 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     const { t } = useTranslation('article')
     const { id } = useParams<{ id: string }>()
     const dispatch = useDispatch()
+    const navigate = useNavigate()
+
     const comments = useSelector(getArticleComments.selectAll)
     const isLoading = useSelector(getArticleDetailsCommentsLoading)
     const error = useSelector(getArticleDetailsCommentsError)
 
     const mods: Mods = {}
     const additionals: Additionals = [className]
+
+    const onBackToList = useCallback(() => {
+        navigate(RoutePath.articles)
+    }, [navigate])
 
     const onSendComment = useCallback(
         (text: string) => {
@@ -69,6 +77,12 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                     mods,
                     additionals,
                 )}>
+                <Button
+                    theme={ButtonTheme.OUTLINE}
+                    onClick={onBackToList}
+                    className={cls.back}>
+                    {`< ${t('Назад до переліку статтів')}`}
+                </Button>
                 <ArticleDetails className={cls.article} id={id} />
                 <Text className={cls.title} title={t('Коментарі')} />
                 <AddCommentForm
