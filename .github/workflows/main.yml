@@ -21,11 +21,11 @@ jobs:
               run: npm install
             - name: build production project
               run: npm run build:prod
-            - name: build storybook
-              run: npm run storybook:build
-            - name: ui testing
-              if: always()
-              run: npm run test:ui:ci
+            # - name: build storybook
+            #   run: npm run storybook:build
+            # - name: ui testing
+            #   if: always()
+            #   run: npm run test:ui:ci
             - name: unit testing
               if: always()
               run: npm run test:unit

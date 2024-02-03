@@ -1,12 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator'
-
 import ArticleDetailsPage from './ArticleDetailsPage'
 import { Article } from 'entities/Article'
-import {
-    ArticleBlockType,
-    ArticleType,
-} from 'entities/Article/model/types/article'
 
 export default {
     title: 'pages/ArticleDetailsPage',
@@ -20,22 +15,22 @@ const Template: ComponentStory<typeof ArticleDetailsPage> = args => (
     <ArticleDetailsPage {...args} />
 )
 
-const data: Article = {
+const article = {
     id: '1',
     title: 'Javascript news',
     subtitle: 'Що нового в JavaScript в 2024?',
-    img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
+    img: '',
     views: 1022,
     createdAt: '27.01.2024',
     user: {
         id: '1',
         username: 'admin',
     },
-    type: [ArticleType.IT],
+    type: ['IT'],
     blocks: [
         {
             id: '1',
-            type: ArticleBlockType.TEXT,
+            type: 'TEXT',
             title: 'Заголовок цього блоку',
             paragraphs: [
                 'Програма, яку за традицією називають Hello, world!, дуже проста. Вона виводить кудись фразу «Hello, world!», або іншу подібну, засобами якоїсь мови.',
@@ -45,12 +40,12 @@ const data: Article = {
         },
         {
             id: '4',
-            type: ArticleBlockType.CODE,
+            type: 'CODE',
             code: '<!DOCTYPE html>\n<html>\n<body>\n<p id="hello"></p>\n\n<script>\ndocument.getElementById("hello").innerHTML = "Hello, world!";\n</script>\n</body>\n</html>;',
         },
         {
             id: '5',
-            type: ArticleBlockType.TEXT,
+            type: 'TEXT',
             title: 'Заголовок цього блоку',
             paragraphs: [
                 'Програма, яку за традицією називають Hello, world!, дуже проста. Вона виводить кудись фразу «Hello, world!», або іншу подібну, засобами якоїсь мови.',
@@ -59,18 +54,18 @@ const data: Article = {
         },
         {
             id: '2',
-            type: ArticleBlockType.IMAGE,
-            src: 'https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png',
+            type: 'IMAGE',
+            src: '',
             title: 'Рисунок 1 - скріншот сайту',
         },
         {
             id: '3',
-            type: ArticleBlockType.CODE,
+            type: 'CODE',
             code: "const path = require('path');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);",
         },
         {
             id: '7',
-            type: ArticleBlockType.TEXT,
+            type: 'TEXT',
             title: 'Заголовок цього блоку',
             paragraphs: [
                 "JavaScript - це мова, програми на якій можна виконувати в різних середовищах. У нашому випадку йдеться про браузери та про серверну платформу Node.js. Якщо досі ви не написали жодного рядка коду на JS і читаєте цей текст у браузері, на настільному комп'ютері, це означає, що ви буквально за лічені секунди від своєї першої JavaScript-програми.",
@@ -79,27 +74,27 @@ const data: Article = {
         },
         {
             id: '8',
-            type: ArticleBlockType.IMAGE,
-            src: 'https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png',
+            type: 'IMAGE',
+            src: '../../../../shared/assets/tests/terminal.png',
             title: 'Рисунок 1 - скріншот сайту',
         },
         {
             id: '9',
-            type: ArticleBlockType.TEXT,
+            type: 'TEXT',
             title: 'Заголовок цього блоку',
             paragraphs: [
                 "JavaScript - це мова, програми на якій можна виконувати в різних середовищах. У нашому випадку йдеться про браузери та про серверну платформу Node.js. Якщо досі ви не написали жодного рядка коду на JS і читаєте цей текст у браузері, на настільному комп'ютері, це означає, що ви буквально за лічені секунди від своєї першої JavaScript-програми.",
             ],
         },
     ],
-}
+} as Article
 
 export const Primary = Template.bind({})
 Primary.args = {}
 Primary.decorators = [
     StoreDecorator({
         articleDetails: {
-            data,
+            data: article,
         },
     }),
 ]

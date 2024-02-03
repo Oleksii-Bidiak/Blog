@@ -3,7 +3,7 @@ import { ArticleView } from '../../model/types/article'
 import { Additionals, Mods, classNames } from 'shared/lib/classNames/classNames'
 import { Card } from 'shared/ui/Card/Card'
 import { Sceleton } from 'shared/ui/Sceleton/Sceleton'
-import cls from './ArticleListItem.module.scss'
+import cls from './articleListItem.module.scss'
 
 interface ArticleListItemSceletonProps {
     className?: string

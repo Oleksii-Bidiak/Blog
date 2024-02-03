@@ -1,6 +1,5 @@
 import React from 'react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-
 import { ArticleList } from './ArticleList'
 import { Article, ArticleView } from '../../model/types/article'
 
@@ -16,19 +15,19 @@ const Template: ComponentStory<typeof ArticleList> = args => (
     <ArticleList {...args} />
 )
 
-const article = {
+const data = {
     id: '1',
     title: 'Javascript news',
     subtitle: 'Що нового в JavaScript в 2024?',
-    img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
+    img: '../../../../shared/assets/tests/photo.jpg',
     views: 1022,
     createdAt: '27.01.2024',
     user: {
         id: '1',
         username: 'admin',
-        avatar: 'https://images.unsplash.com/photo-1534665482403-a909d0d97c67',
+        avatar: '../../../../shared/assets/tests/photo.jpg',
     },
-    type: ['IT'],
+    type: ['IT', 'SCIENCE', 'POLITICS', 'ECONOMICS'],
     blocks: [
         {
             id: '1',
@@ -57,7 +56,7 @@ const article = {
         {
             id: '2',
             type: 'IMAGE',
-            src: 'https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png',
+            src: '../../../../shared/assets/tests/terminal.png',
             title: 'Рисунок 1 - скріншот сайту',
         },
         {
@@ -77,7 +76,7 @@ const article = {
         {
             id: '8',
             type: 'IMAGE',
-            src: 'https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png',
+            src: '../../../../shared/assets/tests/terminal.png',
             title: 'Рисунок 1 - скріншот сайту',
         },
         {
@@ -108,7 +107,7 @@ LoadingSmall.args = {
 export const ListSmall = Template.bind({})
 ListSmall.args = {
     articles: new Array(9).fill(0).map((item, index) => ({
-        ...article,
+        ...data,
         id: String(index),
     })),
     isLoading: false,
@@ -118,7 +117,7 @@ ListSmall.args = {
 export const ListBig = Template.bind({})
 ListBig.args = {
     articles: new Array(9).fill(0).map((item, index) => ({
-        ...article,
+        ...data,
         id: String(index),
     })),
     isLoading: false,

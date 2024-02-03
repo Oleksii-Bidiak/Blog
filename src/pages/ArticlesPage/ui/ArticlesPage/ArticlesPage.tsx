@@ -19,8 +19,6 @@ import { getArticlesLoading } from '../../model/selectors/getArticlesLoading/get
 import { getArticlesError } from '../../model/selectors/getArticlesError/getArticlesError'
 import { getArticlesView } from '../../model/selectors/getArticlesView/getArticlesView'
 import { Page } from 'widgets/Page/Page'
-import { getArticlesPage } from '../../model/selectors/getArticlesPage/getArticlesPage'
-import { getArticlesHasMore } from '../../model/selectors/getArticlesHasMore/getArticlesHasMore'
 import { fetchNextArticles } from '../../model/services/fetchNextArticles/fetchNextArticles'
 
 interface ArticlesPageProps {
