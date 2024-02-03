@@ -20,6 +20,8 @@ import { getArticlesError } from '../../model/selectors/getArticlesError/getArti
 import { getArticlesView } from '../../model/selectors/getArticlesView/getArticlesView'
 import { Page } from 'widgets/Page/Page'
 import { fetchNextArticles } from '../../model/services/fetchNextArticles/fetchNextArticles'
+import { getArticlesInited } from 'pages/ArticlesPage/model/selectors/getArticlesInited/getArticlesInited'
+import { initArticlesPage } from 'pages/ArticlesPage/model/services/initArticlesPage/initArticlesPage'
 
 interface ArticlesPageProps {
     className?: string
@@ -53,12 +55,11 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     }, [dispatch])
 
     useInitialEffect(() => {
-        dispatch(articlePageActions.initState())
-        dispatch(fetchArticleList({ page: 1 }))
+        dispatch(initArticlesPage())
     })
 
     return (
-        <DynamicModuleLoader reducers={reducers}>
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <Page
                 onScrollEnd={onLoadNextPart}
                 className={classNames('', mods, additionals)}>

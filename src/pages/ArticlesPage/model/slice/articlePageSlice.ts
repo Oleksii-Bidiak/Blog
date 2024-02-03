@@ -27,6 +27,7 @@ const articlePagetSlice = createSlice({
         view: ArticleView.SMALL,
         page: 1,
         hasMore: true,
+        _inited: false,
     }),
     reducers: {
         setView: (state, action: PayloadAction<ArticleView>) => {
@@ -37,6 +38,7 @@ const articlePagetSlice = createSlice({
             state.page = action.payload
         },
         initState: state => {
+            state._inited = true
             const view = localStorage.getItem(
                 ARTICLEs_VIEW_LOCALSTORAGE_KEY,
             ) as ArticleView

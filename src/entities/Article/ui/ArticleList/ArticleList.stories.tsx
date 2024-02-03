@@ -19,13 +19,12 @@ const data = {
     id: '1',
     title: 'Javascript news',
     subtitle: 'Що нового в JavaScript в 2024?',
-    img: '../../../../shared/assets/tests/photo.jpg',
+    img: '',
     views: 1022,
     createdAt: '27.01.2024',
     user: {
         id: '1',
         username: 'admin',
-        avatar: '../../../../shared/assets/tests/photo.jpg',
     },
     type: ['IT', 'SCIENCE', 'POLITICS', 'ECONOMICS'],
     blocks: [
@@ -56,7 +55,7 @@ const data = {
         {
             id: '2',
             type: 'IMAGE',
-            src: '../../../../shared/assets/tests/terminal.png',
+            src: '',
             title: 'Рисунок 1 - скріншот сайту',
         },
         {
@@ -76,7 +75,7 @@ const data = {
         {
             id: '8',
             type: 'IMAGE',
-            src: '../../../../shared/assets/tests/terminal.png',
+            src: '',
             title: 'Рисунок 1 - скріншот сайту',
         },
         {
