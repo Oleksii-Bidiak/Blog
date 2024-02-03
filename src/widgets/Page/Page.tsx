@@ -15,9 +15,9 @@ export const Page = memo((props: PageProps) => {
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>
 
     useInfiniteScroll({
+        callback: onScrollEnd,
         wrapperRef,
         triggerRef,
-        callback: onScrollEnd,
     })
 
     return (
