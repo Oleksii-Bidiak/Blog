@@ -23,6 +23,7 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
 import { Button, ButtonTheme } from 'shared/ui/Button'
 import { RoutePath } from 'shared/config/routeConfig/routeConfig'
 import cls from './articleDetailsPage.module.scss'
+import { Page } from 'widgets/Page/Page'
 
 interface ArticleDetailsPageProps {
     className?: string
@@ -71,7 +72,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <div
+            <Page
                 className={classNames(
                     cls.articleDetailsPage,
                     mods,
@@ -90,7 +91,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                     onSendComment={onSendComment}
                 />
                 <CommentList isLoading={isLoading} comments={comments} />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     )
 }

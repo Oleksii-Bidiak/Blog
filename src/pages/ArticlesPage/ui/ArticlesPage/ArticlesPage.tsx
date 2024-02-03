@@ -9,7 +9,7 @@ import {
 import {
     articlePageActions,
     articlePageReducer,
-    getArticles,
+    getArticlesSelectors,
 } from '../../model/slice/articlePageSlice'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
@@ -18,6 +18,10 @@ import { useSelector } from 'react-redux'
 import { getArticlesLoading } from '../../model/selectors/getArticlesLoading/getArticlesLoading'
 import { getArticlesError } from '../../model/selectors/getArticlesError/getArticlesError'
 import { getArticlesView } from '../../model/selectors/getArticlesView/getArticlesView'
+import { Page } from 'widgets/Page/Page'
+import { getArticlesPage } from '../../model/selectors/getArticlesPage/getArticlesPage'
+import { getArticlesHasMore } from '../../model/selectors/getArticlesHasMore/getArticlesHasMore'
+import { fetchNextArticles } from '../../model/services/fetchNextArticles/fetchNextArticles'
 
 interface ArticlesPageProps {
     className?: string
@@ -31,7 +35,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const { className } = props
     const { t } = useTranslation('article')
     const dispatch = useAppDispatch()
-    const articles = useSelector(getArticles.selectAll)
+    const articles = useSelector(getArticlesSelectors.selectAll)
     const isLoading = useSelector(getArticlesLoading)
     const error = useSelector(getArticlesError)
     const view = useSelector(getArticlesView)
@@ -46,21 +50,27 @@ const ArticlesPage = (props: ArticlesPageProps) => {
         [dispatch],
     )
 
+    const onLoadNextPart = useCallback(() => {
+        dispatch(fetchNextArticles())
+    }, [dispatch])
+
     useInitialEffect(() => {
-        dispatch(fetchArticleList())
         dispatch(articlePageActions.initState())
+        dispatch(fetchArticleList({ page: 1 }))
     })
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={classNames('', mods, additionals)}>
+            <Page
+                onScrollEnd={onLoadNextPart}
+                className={classNames('', mods, additionals)}>
                 <ArticleViewSelector view={view} onViewClick={onChangeView} />
                 <ArticleList
                     isLoading={isLoading}
                     view={view}
                     articles={articles}
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     )
 }

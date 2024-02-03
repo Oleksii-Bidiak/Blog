@@ -15,13 +15,6 @@
     min-height: 100vh;
 }
 
-.page {
+.main {
     display: flex;
-}
-
-.content {
-    padding: 20px 20px 20px 45px;
-    height: calc(100vh - var(--header-height));
-    overflow-y: auto;
-    width: 100%;
 }

@@ -20,7 +20,7 @@ function App() {
         <div className={classNames('app', {}, [theme])}>
             <Suspense fallback="">
                 <Header />
-                <main className="page">
+                <main className="main">
                     <Sidebar />
                     {inited && <AppRouter />}
                 </main>

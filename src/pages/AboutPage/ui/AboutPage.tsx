@@ -1,8 +1,9 @@
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next'
+import { Page } from 'widgets/Page/Page'
 
 function AboutPage() {
-  const { t } = useTranslation('about');
-  return <div>{t('Про нас')}</div>;
+    const { t } = useTranslation('about')
+    return <Page>{t('Про нас')}</Page>
 }
 
-export default AboutPage;
+export default AboutPage

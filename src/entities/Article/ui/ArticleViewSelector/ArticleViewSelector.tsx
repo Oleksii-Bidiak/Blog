@@ -33,8 +33,8 @@ export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
 
     return (
         <div>
-            {viewTypes.map(viewType => (
-                <Button onClick={onClickHandler(viewType.view)}>
+            {viewTypes.map((viewType, index) => (
+                <Button onClick={onClickHandler(viewType.view)} key={index}>
                     <Icon
                         Svg={viewType.icon}
                         className={classNames(

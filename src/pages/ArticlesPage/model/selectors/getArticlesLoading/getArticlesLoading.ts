@@ -1,8 +1,8 @@
-import { articlePageSchema } from '../../types/articlePageSchema'
-import { StateSchema } from 'app/providers/StoreProvider'
 import { createSelector } from '@reduxjs/toolkit'
+import { getArticles } from '../getArticles/getArticles'
+import { ArticlesPageSchema } from '../../types/articlePageSchema'
 
 export const getArticlesLoading = createSelector(
-    [(state: StateSchema) => state.articlesPage],
-    (articles: articlePageSchema | undefined) => articles?.isLoading || false,
+    getArticles,
+    (articles: ArticlesPageSchema | undefined) => articles?.isLoading || false,
 )

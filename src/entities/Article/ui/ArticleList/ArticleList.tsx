@@ -13,7 +13,7 @@ interface ArticleListProps {
 }
 
 const getSceletons = (view: ArticleView) => {
-    return new Array(view === ArticleView.SMALL ? 6 : 2)
+    return new Array(view === ArticleView.SMALL ? 9 : 3)
         .fill(0)
         .map((item, index) => (
             <ArticleListItemSceleton view={view} key={index} />
@@ -26,14 +26,6 @@ export const ArticleList = memo((props: ArticleListProps) => {
     const mods: Mods = {}
     const additionals: Additionals = [className, cls[view]]
 
-    if (isLoading) {
-        return (
-            <div className={classNames(cls.articleList, mods, additionals)}>
-                {getSceletons(view)}
-            </div>
-        )
-    }
-
     const renderArtiles = (article: Article) => {
         return (
             <ArticleListItem article={article} view={view} key={article.id} />
@@ -43,6 +35,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
     return (
         <div className={classNames(cls.articleList, mods, additionals)}>
             {articles.length ? articles.map(renderArtiles) : null}
+            {isLoading && getSceletons(view)}
         </div>
     )
 })
