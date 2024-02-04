@@ -22,10 +22,20 @@ Json-server will be running on 8000 port.
 The page will reload when you make changes.
 
 ## Functionality Already Implemented
-- Theme, Store, Router and Error Boundary providers
+- Error Boundary
+- Login form
+- Nanigation (private and publick routes)
 - Profile page and store
 - Internationality
+- Theme switcher
+- Sidebar
+- [x] Articles page
+- Infinite scroll
+- Save articles in store
+- [x] Article details page
+- Block structure of the article
+- Comments list
+- Create comments
 
 ## Tasks and Functionality Under Development
-- [ ] Article page
-- [ ] Articls details page
+
