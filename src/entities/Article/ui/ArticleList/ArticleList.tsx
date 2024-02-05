@@ -1,4 +1,4 @@
-import { memo } from 'react'
+import { HTMLAttributeAnchorTarget, memo } from 'react'
 import { Article, ArticleView } from '../../model/types/article'
 import { Additionals, Mods, classNames } from 'shared/lib/classNames/classNames'
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem'
@@ -12,6 +12,7 @@ interface ArticleListProps {
     articles: Article[]
     view?: ArticleView
     isLoading?: boolean
+    target?: HTMLAttributeAnchorTarget
 }
 
 const getSceletons = (view: ArticleView) => {
@@ -23,7 +24,13 @@ const getSceletons = (view: ArticleView) => {
 }
 
 export const ArticleList = memo((props: ArticleListProps) => {
-    const { className, articles, isLoading, view = ArticleView.SMALL } = props
+    const {
+        className,
+        articles,
+        isLoading,
+        view = ArticleView.SMALL,
+        target,
+    } = props
     const { t } = useTranslation('articles')
 
     const mods: Mods = {}
@@ -31,7 +38,12 @@ export const ArticleList = memo((props: ArticleListProps) => {
 
     const renderArtiles = (article: Article) => {
         return (
-            <ArticleListItem article={article} view={view} key={article.id} />
+            <ArticleListItem
+                target={target}
+                article={article}
+                view={view}
+                key={article.id}
+            />
         )
     }
 

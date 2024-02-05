@@ -9,12 +9,12 @@ import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArtic
 import {
     articleDetailsCommentsReducer,
     getArticleComments,
-} from '../model/slice/ArticleDetailsCommentSlice'
+} from '../model/slice/ArticleDetailsCommentSlice/ArticleDetailsCommentSlice'
 import { AddCommentForm } from 'features/addCommentForm'
-import { ArticleDetails } from 'entities/Article'
+import { ArticleDetails, ArticleList } from 'entities/Article'
 import { CommentList } from 'entities/Comment'
 import { Additionals, Mods, classNames } from 'shared/lib/classNames/classNames'
-import { Text } from 'shared/ui/Text/Text'
+import { Text, TextSize } from 'shared/ui/Text/Text'
 import {
     DynamicModuleLoader,
     ReducersList,
@@ -24,13 +24,20 @@ import { Button, ButtonTheme } from 'shared/ui/Button'
 import { RoutePath } from 'shared/config/routeConfig/routeConfig'
 import cls from './articleDetailsPage.module.scss'
 import { Page } from 'widgets/Page/Page'
+import { getArticleRecommendations } from '../model/slice/articleDetailsRecommendationsSlice/articleDetailsRecommendationsSlice'
+import {
+    getArticleRecommendationsError,
+    getArticleRecommendationsIsLoading,
+} from '../model/selectors/getArticleRecommendations/getArticleRecommendations'
+import { fetchArticlesRecommendation } from '../model/services/fetchArticlesRecommendation/fetchArticlesRecommendation'
+import { articleDetailsPageReducer } from '../model/slice/inde'
 
 interface ArticleDetailsPageProps {
     className?: string
 }
 
 const reducers: ReducersList = {
-    articleDetailsComments: articleDetailsCommentsReducer,
+    articleDetailsPage: articleDetailsPageReducer,
 }
 
 const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
@@ -43,6 +50,12 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     const comments = useSelector(getArticleComments.selectAll)
     const isLoading = useSelector(getArticleDetailsCommentsLoading)
     const error = useSelector(getArticleDetailsCommentsError)
+
+    const recommendations = useSelector(getArticleRecommendations.selectAll)
+    const recommendationsLoading = useSelector(
+        getArticleRecommendationsIsLoading,
+    )
+    const recommendationsError = useSelector(getArticleRecommendationsError)
 
     const mods: Mods = {}
     const additionals: Additionals = [className]
@@ -60,6 +73,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id))
+        dispatch(fetchArticlesRecommendation())
     })
 
     if (!id) {
@@ -85,7 +99,22 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                     {`< ${t('Назад до переліку статтів')}`}
                 </Button>
                 <ArticleDetails className={cls.article} id={id} />
-                <Text className={cls.title} title={t('Коментарі')} />
+                <Text
+                    size={TextSize.L}
+                    className={cls.title}
+                    title={t('Рекомендуємо')}
+                />
+                <ArticleList
+                    articles={recommendations}
+                    isLoading={recommendationsLoading}
+                    className={cls.recommendations}
+                    target="_blank"
+                />
+                <Text
+                    size={TextSize.L}
+                    className={cls.title}
+                    title={t('Коментарі')}
+                />
                 <AddCommentForm
                     className={cls.coomentForm}
                     onSendComment={onSendComment}
