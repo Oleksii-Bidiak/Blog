@@ -47,11 +47,3 @@ CircleDark.args = {
     width: 100,
 }
 CircleDark.decorators = [ThemeDecorator(Theme.DARK)]
-
-export const CircleOrange = Template.bind({})
-CircleOrange.args = {
-    borderRadius: '50%',
-    height: 100,
-    width: 100,
-}
-CircleOrange.decorators = [ThemeDecorator(Theme.ORANGE)]
