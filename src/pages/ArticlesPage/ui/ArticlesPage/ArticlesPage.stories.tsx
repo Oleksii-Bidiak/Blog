@@ -16,11 +16,8 @@ const Template: ComponentStory<typeof ArticlesPage> = () => <ArticlesPage />
 
 export const Light = Template.bind({})
 Light.args = {}
-Light.decorators = [StoreDecorator({ articlesPage: {} })]
+Light.decorators = [StoreDecorator({})]
 
 export const Dark = Template.bind({})
 Dark.args = {}
-Dark.decorators = [
-    ThemeDecorator(Theme.DARK),
-    StoreDecorator({ articlesPage: {} }),
-]
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})]

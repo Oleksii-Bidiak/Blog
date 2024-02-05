@@ -1,19 +1,17 @@
 import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
-import { ArticleList, ArticleView, ArticleViewSelector } from 'entities/Article'
+import { ArticleList } from 'entities/Article'
 import { Additionals, Mods, classNames } from 'shared/lib/classNames/classNames'
 import {
     DynamicModuleLoader,
     ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader'
 import {
-    articlePageActions,
     articlePageReducer,
     getArticlesSelectors,
 } from '../../model/slice/articlePageSlice'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
-import { fetchArticleList } from '../../model/services/fetchArticleList/fetchArticleList'
 import { useSelector } from 'react-redux'
 import { getArticlesLoading } from '../../model/selectors/getArticlesLoading/getArticlesLoading'
 import { getArticlesError } from '../../model/selectors/getArticlesError/getArticlesError'
@@ -47,7 +45,9 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const additionals: Additionals = [className]
 
     const onLoadNextPart = useCallback(() => {
-        dispatch(fetchNextArticles())
+        if (__PROJECT__ !== 'storybook') {
+            dispatch(fetchNextArticles())
+        }
     }, [dispatch])
 
     useInitialEffect(() => {
