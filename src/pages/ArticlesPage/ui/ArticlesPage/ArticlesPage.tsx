@@ -22,6 +22,8 @@ import { Page } from 'widgets/Page/Page'
 import { fetchNextArticles } from '../../model/services/fetchNextArticles/fetchNextArticles'
 import { getArticlesInited } from 'pages/ArticlesPage/model/selectors/getArticlesInited/getArticlesInited'
 import { initArticlesPage } from 'pages/ArticlesPage/model/services/initArticlesPage/initArticlesPage'
+import { ArticlePageFilters } from '../ArticlePageFilters/ArticlePageFilters'
+import { useSearchParams } from 'react-router-dom'
 
 interface ArticlesPageProps {
     className?: string
@@ -39,23 +41,17 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const isLoading = useSelector(getArticlesLoading)
     const error = useSelector(getArticlesError)
     const view = useSelector(getArticlesView)
+    const [searchParams] = useSearchParams()
 
     const mods: Mods = {}
     const additionals: Additionals = [className]
-
-    const onChangeView = useCallback(
-        (view: ArticleView) => {
-            dispatch(articlePageActions.setView(view))
-        },
-        [dispatch],
-    )
 
     const onLoadNextPart = useCallback(() => {
         dispatch(fetchNextArticles())
     }, [dispatch])
 
     useInitialEffect(() => {
-        dispatch(initArticlesPage())
+        dispatch(initArticlesPage(searchParams))
     })
 
     return (
@@ -63,7 +59,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
             <Page
                 onScrollEnd={onLoadNextPart}
                 className={classNames('', mods, additionals)}>
-                <ArticleViewSelector view={view} onViewClick={onChangeView} />
+                <ArticlePageFilters view={view} />
                 <ArticleList
                     isLoading={isLoading}
                     view={view}

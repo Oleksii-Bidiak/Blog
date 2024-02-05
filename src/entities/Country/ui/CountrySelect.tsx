@@ -13,7 +13,7 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
     const { value, onChange, readonly } = props
     const { t } = useTranslation('profile')
 
-    const options = useMemo<SelectOption[]>(() => {
+    const options = useMemo<SelectOption<Country>[]>(() => {
         return [
             { value: Country.Ukraine, content: Country.Ukraine },
             { value: Country.France, content: Country.France },

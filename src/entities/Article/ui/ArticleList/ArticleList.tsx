@@ -4,6 +4,8 @@ import { Additionals, Mods, classNames } from 'shared/lib/classNames/classNames'
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem'
 import { ArticleListItemSceleton } from '../ArticleListItem/ArticleListItemSceleton'
 import cls from './articleList.module.scss'
+import { Text, TextSize } from 'shared/ui/Text/Text'
+import { useTranslation } from 'react-i18next'
 
 interface ArticleListProps {
     className?: string
@@ -22,6 +24,7 @@ const getSceletons = (view: ArticleView) => {
 
 export const ArticleList = memo((props: ArticleListProps) => {
     const { className, articles, isLoading, view = ArticleView.SMALL } = props
+    const { t } = useTranslation('articles')
 
     const mods: Mods = {}
     const additionals: Additionals = [className, cls[view]]
@@ -29,6 +32,14 @@ export const ArticleList = memo((props: ArticleListProps) => {
     const renderArtiles = (article: Article) => {
         return (
             <ArticleListItem article={article} view={view} key={article.id} />
+        )
+    }
+
+    if (!isLoading && !articles.length) {
+        return (
+            <div className={classNames(cls.articleList, mods, additionals)}>
+                <Text text={t('Статтю не знайдено')} size={TextSize.L} />
+            </div>
         )
     }
 

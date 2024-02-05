@@ -7,4 +7,16 @@
 	"Відправити": "Send",
 	"Більше...": "More...",
 	"Назад до переліку статтів": "Back to the list of articles",
+	"Сортувати по": "Sort by",
+	"Пошук": "Search",
+	"По": "By",
+	"зростанню": "growth",
+	"спаданню": "decline",
+	"по даті": "by date",
+	"по заголовку": "by title",
+	"по кількості переглядів": "by the number of views",
+	"ALL": "All articles",
+	"IT": "IT",
+	"SCIENCE": "SCIENCE",
+	"ECONOMICS": "ECONOMICS"
 }

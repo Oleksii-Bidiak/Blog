@@ -3,6 +3,7 @@
     row-gap: 30px;
 
     &.SMALL {
+        justify-content: space-between;
         column-gap: 30px;
         flex-wrap: wrap;
     }

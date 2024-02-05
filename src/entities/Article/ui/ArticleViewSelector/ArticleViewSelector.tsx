@@ -9,7 +9,7 @@ import cls from './articleViewSelector.module.scss'
 
 interface ArticleViewSelectorProps {
     className?: string
-    view: ArticleView
+    view?: ArticleView
     onViewClick?: (view: ArticleView) => void
 }
 
@@ -40,7 +40,7 @@ export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
                         className={classNames(
                             '',
                             { [cls.notSelected]: viewType.view !== view },
-                            [],
+                            [className],
                         )}
                     />
                 </Button>

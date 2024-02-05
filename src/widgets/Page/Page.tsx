@@ -11,7 +11,6 @@ import {
 import { useLocation } from 'react-router-dom'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
 import { useSelector } from 'react-redux'
-import { getScrollSave } from 'features/ScrollSave/model/selectors/getScrollSave/getScrollSave'
 import { StateSchema } from 'app/providers/StoreProvider'
 import { useTrotlle } from 'shared/lib/hooks/useTrotlle'
 
@@ -57,7 +56,9 @@ export const Page = memo((props: PageProps) => {
             className={classNames(cls.page, {}, [className])}
             onScroll={onScrollHandler}>
             {children}
-            <div ref={triggerRef} />
+            {onScrollEnd ? (
+                <div className={cls.trigger} ref={triggerRef} />
+            ) : null}
         </section>
     )
 })
