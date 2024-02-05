@@ -12,5 +12,7 @@
 	"Неправильний логін або пароль": "Incorrect login or password",
 	"Вихід": "Logout",
 	"Профіль": "Profile",
-	"Cтатті": "Articles"
+	"Cтатті": "Articles",
+	"Редагувати": "Edit",
+	"Нова стаття": "New article"
 }

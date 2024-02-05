@@ -2,14 +2,14 @@ import { memo, useCallback } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
-import { addCommentForArticle } from '../model/services/addCommentForArticle/addCommentForArticle'
-import { getArticleDetailsCommentsLoading } from '../model/selectors/getArticleDetailsCommentsLoading/getArticleDetailsCommentsLoading'
-import { getArticleDetailsCommentsError } from '../model/selectors/getArticleDetailsCommentsError/getArticleDetailsCommentsError'
-import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId'
+import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle'
+import { getArticleDetailsCommentsLoading } from '../../model/selectors/getArticleDetailsCommentsLoading/getArticleDetailsCommentsLoading'
+import { getArticleDetailsCommentsError } from '../../model/selectors/getArticleDetailsCommentsError/getArticleDetailsCommentsError'
+import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId'
 import {
     articleDetailsCommentsReducer,
     getArticleComments,
-} from '../model/slice/ArticleDetailsCommentSlice/ArticleDetailsCommentSlice'
+} from '../../model/slice/ArticleDetailsCommentSlice/ArticleDetailsCommentSlice'
 import { AddCommentForm } from 'features/addCommentForm'
 import { ArticleDetails, ArticleList } from 'entities/Article'
 import { CommentList } from 'entities/Comment'
@@ -24,13 +24,14 @@ import { Button, ButtonTheme } from 'shared/ui/Button'
 import { RoutePath } from 'shared/config/routeConfig/routeConfig'
 import cls from './articleDetailsPage.module.scss'
 import { Page } from 'widgets/Page/Page'
-import { getArticleRecommendations } from '../model/slice/articleDetailsRecommendationsSlice/articleDetailsRecommendationsSlice'
+import { getArticleRecommendations } from '../../model/slice/articleDetailsRecommendationsSlice/articleDetailsRecommendationsSlice'
 import {
     getArticleRecommendationsError,
     getArticleRecommendationsIsLoading,
-} from '../model/selectors/getArticleRecommendations/getArticleRecommendations'
-import { fetchArticlesRecommendation } from '../model/services/fetchArticlesRecommendation/fetchArticlesRecommendation'
-import { articleDetailsPageReducer } from '../model/slice/inde'
+} from '../../model/selectors/getArticleRecommendations/getArticleRecommendations'
+import { fetchArticlesRecommendation } from '../../model/services/fetchArticlesRecommendation/fetchArticlesRecommendation'
+import { articleDetailsPageReducer } from '../../model/slice/inde'
+import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader'
 
 interface ArticleDetailsPageProps {
     className?: string
@@ -45,7 +46,6 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     const { t } = useTranslation('article')
     const { id } = useParams<{ id: string }>()
     const dispatch = useDispatch()
-    const navigate = useNavigate()
 
     const comments = useSelector(getArticleComments.selectAll)
     const isLoading = useSelector(getArticleDetailsCommentsLoading)
@@ -59,10 +59,6 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
     const mods: Mods = {}
     const additionals: Additionals = [className]
-
-    const onBackToList = useCallback(() => {
-        navigate(RoutePath.articles)
-    }, [navigate])
 
     const onSendComment = useCallback(
         (text: string) => {
@@ -92,12 +88,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                     mods,
                     additionals,
                 )}>
-                <Button
-                    theme={ButtonTheme.OUTLINE}
-                    onClick={onBackToList}
-                    className={cls.back}>
-                    {`< ${t('Назад до переліку статтів')}`}
-                </Button>
+                <ArticleDetailsPageHeader className={cls.back} />
                 <ArticleDetails className={cls.article} id={id} />
                 <Text
                     size={TextSize.L}

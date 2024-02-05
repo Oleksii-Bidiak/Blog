@@ -1,14 +1,17 @@
 .header {
-  width: 100%;
-  height: var(--header-height);
-  background: var(--inverted-bg-color);
-  display: flex;
-  align-items: center;
-  padding: 20px;
+    width: 100%;
+    height: var(--header-height);
+    background: var(--inverted-bg-color);
+    display: flex;
+    align-items: center;
+    padding: 20px;
+
+    .appName {
+        flex: 1 1 100%;
+    }
 }
 
 .links {
-  display: flex;
-  gap: 15px;
-  margin-left: auto;
+    display: flex;
+    gap: 30px;
 }

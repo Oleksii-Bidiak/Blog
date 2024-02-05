@@ -7,6 +7,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Button, ButtonTheme } from 'shared/ui/Button'
 import cls from './header.module.scss'
+import { Text, TextTheme } from 'shared/ui/Text/Text'
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink'
+import { RoutePath } from 'shared/config/routeConfig/routeConfig'
 
 interface HeaderProps {
     className?: string
@@ -33,12 +36,23 @@ export const Header = memo(({ className }: HeaderProps) => {
     if (authData) {
         return (
             <header className={classNames(cls.header, {}, [className])}>
-                <Button
-                    theme={ButtonTheme.CLEAR_INVERTED}
-                    className={cls.links}
-                    onClick={onLogout}>
-                    {t('Вихід')}
-                </Button>
+                <Text
+                    theme={TextTheme.INVERTED}
+                    className={cls.appName}
+                    title="AppName"
+                />
+                <div className={cls.links}>
+                    <AppLink
+                        to={RoutePath.articles_create}
+                        theme={AppLinkTheme.SECONDARY}>
+                        {t('Нова стаття')}
+                    </AppLink>
+                    <Button
+                        theme={ButtonTheme.CLEAR_INVERTED}
+                        onClick={onLogout}>
+                        {t('Вихід')}
+                    </Button>
+                </div>
             </header>
         )
     }
