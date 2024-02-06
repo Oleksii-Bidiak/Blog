@@ -42,12 +42,12 @@ export function buildPlugins(
         new CopyPlugin({
             patterns: [{ from: paths.locales, to: paths.buildLocales }],
         }),
+        definePlugin,
     ]
 
     if (isDev) {
         plugins.push(
             hotModuleReplacementPlugin,
-            definePlugin,
             bundleAnalyzerPlugin,
             reactRefreshWebpackPlugin,
         )
