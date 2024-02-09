@@ -16,11 +16,11 @@ const Template: ComponentStory<typeof Header> = args => <Header {...args} />
 
 export const Light = Template.bind({})
 Light.args = {}
-Light.decorators = [StoreDecorator({})]
+Light.decorators = [StoreDecorator({ user: {} })]
 
 export const Dark = Template.bind({})
 Dark.args = {}
-Dark.decorators = [StoreDecorator({}), ThemeDecorator(Theme.DARK)]
+Dark.decorators = [StoreDecorator({ user: {} }), ThemeDecorator(Theme.DARK)]
 
 export const AuthHeader = Template.bind({})
 AuthHeader.args = {}
