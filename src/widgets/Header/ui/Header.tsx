@@ -59,6 +59,11 @@ export const Header = memo(({ className }: HeaderProps) => {
 
     return (
         <header className={classNames(cls.header, {}, [className])}>
+            <Text
+                theme={TextTheme.INVERTED}
+                className={cls.appName}
+                title="AppName"
+            />
             <Button
                 theme={ButtonTheme.CLEAR_INVERTED}
                 className={cls.links}
