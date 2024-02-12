@@ -19,7 +19,13 @@ module.exports = {
         ecmaVersion: 'latest',
         sourceType: 'module',
     },
-    plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks'],
+    plugins: [
+        'react',
+        '@typescript-eslint',
+        'i18next',
+        'react-hooks',
+        'fsd-project-plugin',
+    ],
     rules: {
         'lines-between-class-members': 'off',
         '@typescript-eslint/interface-name-prefix': 'off',
@@ -108,6 +114,7 @@ module.exports = {
         'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
         'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies
         'react/no-array-index-key': 'off',
+        'fsd-project-plugin/path-checker': 'error',
     },
     globals: {
         __IS_DEV__: true,

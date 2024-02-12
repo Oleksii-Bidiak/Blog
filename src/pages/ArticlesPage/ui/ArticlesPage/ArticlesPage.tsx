@@ -18,8 +18,7 @@ import { getArticlesError } from '../../model/selectors/getArticlesError/getArti
 import { getArticlesView } from '../../model/selectors/getArticlesView/getArticlesView'
 import { Page } from 'widgets/Page/Page'
 import { fetchNextArticles } from '../../model/services/fetchNextArticles/fetchNextArticles'
-import { getArticlesInited } from 'pages/ArticlesPage/model/selectors/getArticlesInited/getArticlesInited'
-import { initArticlesPage } from 'pages/ArticlesPage/model/services/initArticlesPage/initArticlesPage'
+import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage'
 import { ArticlePageFilters } from '../ArticlePageFilters/ArticlePageFilters'
 import { useSearchParams } from 'react-router-dom'
 
