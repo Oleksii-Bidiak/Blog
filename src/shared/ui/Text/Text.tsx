@@ -15,6 +15,7 @@ export enum TextAlign {
 }
 
 export enum TextSize {
+    S = 'size_s',
     M = 'size_m',
     L = 'size_l',
 }
@@ -28,6 +29,14 @@ interface TextProps {
     size?: TextSize
 }
 
+type TitleTagType = 'h1' | 'h2' | 'h3'
+
+const mapSizeToTitleTag: Record<TextSize, TitleTagType> = {
+    [TextSize.S]: 'h3',
+    [TextSize.M]: 'h2',
+    [TextSize.L]: 'h1',
+}
+
 export const Text = memo((props: TextProps) => {
     const {
         className,
@@ -38,6 +47,8 @@ export const Text = memo((props: TextProps) => {
         size = TextSize.M,
     } = props
 
+    const TitleTag = mapSizeToTitleTag[size]
+
     const additionas: Additionals = [
         className,
         cls[theme],
@@ -47,7 +58,7 @@ export const Text = memo((props: TextProps) => {
 
     return (
         <div className={classNames(cls.textBlock, {}, additionas)}>
-            {title && <p className={cls.title}>{title}</p>}
+            {title && <TitleTag className={cls.title}>{title}</TitleTag>}
             {text && <p className={cls.text}>{text}</p>}
         </div>
     )

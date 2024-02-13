@@ -40,9 +40,9 @@ export const Sidebar = memo((props: SidebarProps) => {
             className={classNames(cls.sidebar, { [cls.collapsed]: collapsed }, [
                 className,
             ])}>
-            <nav className={cls.sidebarNav}>
-                <VStack gap="8">{itemsList}</VStack>
-            </nav>
+            <VStack role="navigation" gap="8" className={cls.sidebarNav}>
+                {itemsList}
+            </VStack>
             <Button
                 className={cls.collapsedBtn}
                 data-testid="sidebar-toggle"
