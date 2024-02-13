@@ -4,7 +4,7 @@ import { Comment } from '../../model/types/comment'
 import { Text } from 'shared/ui/Text/Text'
 import { useTranslation } from 'react-i18next'
 import { CommentCard } from '../CommentCard/CommentCard'
-import cls from './commentList.module.scss'
+import { VStack } from 'shared/ui/Stack'
 
 interface CommentListProps {
     className?: string
@@ -23,7 +23,6 @@ export const CommentList = memo((props: CommentListProps) => {
         return comments?.map(comment => (
             <CommentCard
                 isLoading={isLoading}
-                className={cls.comment}
                 key={comment.id}
                 comment={comment}
             />
@@ -32,21 +31,21 @@ export const CommentList = memo((props: CommentListProps) => {
 
     if (isLoading) {
         return (
-            <div className={classNames(cls.commentList, mods, additionals)}>
-                <CommentCard className={cls.comment} isLoading />
-                <CommentCard className={cls.comment} isLoading />
-                <CommentCard className={cls.comment} isLoading />
-            </div>
+            <VStack gap="16" max className={classNames('', mods, additionals)}>
+                <CommentCard isLoading />
+                <CommentCard isLoading />
+                <CommentCard isLoading />
+            </VStack>
         )
     }
 
     return (
-        <div className={classNames(cls.commentList, mods, additionals)}>
+        <VStack gap="16" max className={classNames('', mods, additionals)}>
             {comments?.length ? (
                 commentList
             ) : (
                 <Text text={t('Коментарі відсутні')} />
             )}
-        </div>
+        </VStack>
     )
 })

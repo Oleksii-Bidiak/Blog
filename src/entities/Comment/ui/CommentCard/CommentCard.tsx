@@ -7,6 +7,7 @@ import { Text } from 'shared/ui/Text/Text'
 import { Sceleton } from 'shared/ui/Sceleton/Sceleton'
 import { AppLink } from 'shared/ui/AppLink'
 import { RoutePath } from 'shared/config/routeConfig/routeConfig'
+import { VStack } from 'shared/ui/Stack'
 
 interface CommentCardProps {
     className?: string
@@ -22,13 +23,16 @@ export const CommentCard = memo((props: CommentCardProps) => {
 
     if (isLoading) {
         return (
-            <div className={classNames(cls.commentCard, mods, additionals)}>
+            <VStack
+                gap="8"
+                max
+                className={classNames(cls.commentCard, mods, additionals)}>
                 <div className={cls.header}>
                     <Sceleton height={30} width={30} borderRadius="50%" />
                     <Sceleton height={16} width={100} />
                 </div>
                 <Sceleton width="100%" height={50} />
-            </div>
+            </VStack>
         )
     }
 
@@ -37,7 +41,10 @@ export const CommentCard = memo((props: CommentCardProps) => {
     }
 
     return (
-        <div className={classNames(cls.commentCard, mods, additionals)}>
+        <VStack
+            gap="8"
+            max
+            className={classNames(cls.commentCard, mods, additionals)}>
             <AppLink
                 to={`${RoutePath.profile}${comment.user.id}`}
                 className={cls.header}>
@@ -47,6 +54,6 @@ export const CommentCard = memo((props: CommentCardProps) => {
                 <Text title={comment.user.username} />
             </AppLink>
             <Text text={comment.text} />
-        </div>
+        </VStack>
     )
 })

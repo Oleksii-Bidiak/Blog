@@ -19,7 +19,7 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 2022,
       "createdAt": "27.10.2022",
-		"userId": "1",
+      "userId": "1",
       "type": [
         "IT"
       ],
@@ -91,9 +91,10 @@
       "img": "https://static-00.iconduck.com/assets.00/typescript-icon-icon-1024x1024-vh3pfez8.png",
       "views": 560,
       "createdAt": "01.01.2024",
-		"userId": "2",
+      "userId": "2",
       "type": [
-        "IT", "SCIENCE"
+        "IT",
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -163,9 +164,11 @@
       "img": "https://cdn.worldvectorlogo.com/logos/react-1.svg",
       "views": 3244,
       "createdAt": "02.01.2024",
-		"userId": "1",
+      "userId": "1",
       "type": [
-        "IT", "SCIENCE", "ECONOMICS"
+        "IT",
+        "SCIENCE",
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -235,7 +238,7 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 5782,
       "createdAt": "06.01.2023",
-		"userId": "1",
+      "userId": "1",
       "type": [
         "IT"
       ],
@@ -307,9 +310,10 @@
       "img": "https://static-00.iconduck.com/assets.00/typescript-icon-icon-1024x1024-vh3pfez8.png",
       "views": 120,
       "createdAt": "01.02.2024",
-		"userId": "1",
+      "userId": "1",
       "type": [
-        "IT", "SCIENCE"
+        "IT",
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -379,9 +383,11 @@
       "img": "https://cdn.worldvectorlogo.com/logos/react-1.svg",
       "views": 654,
       "createdAt": "02.05.2023",
-		"userId": "2",
+      "userId": "2",
       "type": [
-        "IT", "SCIENCE", "ECONOMICS"
+        "IT",
+        "SCIENCE",
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -451,7 +457,7 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 320,
       "createdAt": "27.01.2024",
-		"userId": "1",
+      "userId": "1",
       "type": [
         "IT"
       ],
@@ -523,9 +529,10 @@
       "img": "https://static-00.iconduck.com/assets.00/typescript-icon-icon-1024x1024-vh3pfez8.png",
       "views": 11092,
       "createdAt": "01.01.2022",
-		"userId": "2",
+      "userId": "2",
       "type": [
-        "IT", "SCIENCE"
+        "IT",
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -595,9 +602,11 @@
       "img": "https://cdn.worldvectorlogo.com/logos/react-1.svg",
       "views": 111,
       "createdAt": "02.01.2024",
-		"userId": "1",
+      "userId": "1",
       "type": [
-        "IT", "SCIENCE", "ECONOMICS"
+        "IT",
+        "SCIENCE",
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -667,7 +676,7 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 6643,
       "createdAt": "27.11.2023",
-		"userId": "2",
+      "userId": "2",
       "type": [
         "IT"
       ],
@@ -739,9 +748,10 @@
       "img": "https://static-00.iconduck.com/assets.00/typescript-icon-icon-1024x1024-vh3pfez8.png",
       "views": 7234,
       "createdAt": "10.07.2023",
-		"userId": "1",
+      "userId": "1",
       "type": [
-        "IT", "SCIENCE"
+        "IT",
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -811,9 +821,11 @@
       "img": "https://cdn.worldvectorlogo.com/logos/react-1.svg",
       "views": 901,
       "createdAt": "02.11.2023",
-		"userId": "1",
+      "userId": "1",
       "type": [
-        "IT", "SCIENCE", "ECONOMICS"
+        "IT",
+        "SCIENCE",
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -883,9 +895,10 @@
       "img": "https://static-00.iconduck.com/assets.00/typescript-icon-icon-1024x1024-vh3pfez8.png",
       "views": 4321,
       "createdAt": "01.01.2024",
-		"userId": "2",
+      "userId": "2",
       "type": [
-        "IT", "SCIENCE"
+        "IT",
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -955,9 +968,11 @@
       "img": "https://cdn.worldvectorlogo.com/logos/react-1.svg",
       "views": 543,
       "createdAt": "22.01.2024",
-		"userId": "1",
+      "userId": "1",
       "type": [
-        "IT", "SCIENCE", "ECONOMICS"
+        "IT",
+        "SCIENCE",
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -1027,7 +1042,7 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 234,
       "createdAt": "27.01.2024",
-		"userId": "2",
+      "userId": "2",
       "type": [
         "IT"
       ],
@@ -1099,9 +1114,10 @@
       "img": "https://static-00.iconduck.com/assets.00/typescript-icon-icon-1024x1024-vh3pfez8.png",
       "views": 1022,
       "createdAt": "11.01.2024",
-		"userId": "1",
+      "userId": "1",
       "type": [
-        "IT", "SCIENCE"
+        "IT",
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -1171,9 +1187,11 @@
       "img": "https://cdn.worldvectorlogo.com/logos/react-1.svg",
       "views": 1022,
       "createdAt": "22.10.2023",
-		"userId": "2",
+      "userId": "2",
       "type": [
-        "IT", "SCIENCE", "ECONOMICS"
+        "IT",
+        "SCIENCE",
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -1235,7 +1253,7 @@
           ]
         }
       ]
-    }	 
+    }
   ],
   "comments": [
     {
@@ -1267,6 +1285,12 @@
       "userId": "2",
       "text": "xexexex",
       "id": "mO7hENM"
+    },
+    {
+      "articleId": "8",
+      "userId": "2",
+      "text": "test comment",
+      "id": "uRik2wI"
     }
   ],
   "users": [
