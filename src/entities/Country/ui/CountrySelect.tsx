@@ -1,7 +1,7 @@
 import { memo, useCallback, useMemo } from 'react'
-import { Select, SelectOption } from 'shared/ui/Select/Select'
 import { useTranslation } from 'react-i18next'
 import { Country } from '../model/types/country'
+import { ListBox, listBoxItem } from 'shared/ui/ListBox/ListBox'
 
 interface CountrySelectProps {
     value?: string
@@ -13,7 +13,7 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
     const { value, onChange, readonly } = props
     const { t } = useTranslation('profile')
 
-    const options = useMemo<SelectOption<Country>[]>(() => {
+    const options = useMemo<listBoxItem<Country>[]>(() => {
         return [
             { value: Country.Ukraine, content: Country.Ukraine },
             { value: Country.France, content: Country.France },
@@ -31,12 +31,14 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
     )
 
     return (
-        <Select
-            label={t('Валюта')}
-            options={options}
+        <ListBox
             value={value}
+            items={options}
             onChange={onChangeHandler}
             readonly={readonly}
+            defaultValue={t('Країна')}
+            direction="top"
+            label={t('Країна')}
         />
     )
 })

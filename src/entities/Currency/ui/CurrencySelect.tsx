@@ -1,7 +1,7 @@
 import { memo, useCallback, useMemo } from 'react'
-import { Select } from 'shared/ui/Select/Select'
 import { Currency } from '../model/types/currency'
 import { useTranslation } from 'react-i18next'
+import { ListBox, listBoxItem } from 'shared/ui/ListBox/ListBox'
 
 interface CurrencySelectProps {
     value?: string
@@ -13,7 +13,7 @@ export const CurrencySelect = memo((props: CurrencySelectProps) => {
     const { value, onChange, readonly } = props
     const { t } = useTranslation('profile')
 
-    const options = useMemo(() => {
+    const options = useMemo<listBoxItem<Currency>[]>(() => {
         return [
             { value: Currency.GRN, content: Currency.GRN },
             { value: Currency.USD, content: Currency.USD },
@@ -29,12 +29,14 @@ export const CurrencySelect = memo((props: CurrencySelectProps) => {
     )
 
     return (
-        <Select
-            label={t('Валюта')}
-            options={options}
+        <ListBox
             value={value}
+            items={options}
             onChange={onChangeHandler}
             readonly={readonly}
+            defaultValue={t('Валюта')}
+            direction="top"
+            label={t('Валюта')}
         />
     )
 })
