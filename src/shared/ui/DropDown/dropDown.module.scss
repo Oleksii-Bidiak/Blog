@@ -1,11 +1,11 @@
-.listBox {
+.dropDown {
     position: relative;
 
-    .options {
+    .menu {
         position: absolute;
         background-color: var(--listbox-bg);
-        border-radius: 12px;
-        box-shadow: 4px 4px 8px var(--listbox-bg);
+        border: 1px solid var(--primary-color);
+        border-radius: 8px;
         z-index: 10;
         overflow: hidden;
 
@@ -32,17 +32,15 @@
         }
     }
 
-    .option {
+    .item {
+        display: inline-block;
+        padding: 10px 25px;
+        width: 100%;
+        transition: all 0.3s ease 0s;
         cursor: pointer;
-        padding: 5px 20px;
-        transition: background-color 0.1s ease 0s;
-
-        &.active {
-            background-color: var(--inverted-primary-color);
-        }
     }
+}
 
-    .disabled {
-        opacity: 0.8;
-    }
+.active {
+    background-color: var(--inverted-primary-color);
 }

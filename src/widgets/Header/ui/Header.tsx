@@ -1,15 +1,18 @@
 /* eslint-disable i18next/no-literal-string */
-import { getAuthUserData, userActions } from 'entities/User'
-import { LoginModal } from 'features/AuthByUsername'
 import { memo, useCallback, useState } from 'react'
-import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
+import { LoginModal } from 'features/AuthByUsername'
+import { getAuthUserData, userActions } from 'entities/User'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Button, ButtonTheme } from 'shared/ui/Button'
-import cls from './header.module.scss'
 import { Text, TextTheme } from 'shared/ui/Text/Text'
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink'
 import { RoutePath } from 'shared/config/routeConfig/routeConfig'
+import cls from './header.module.scss'
+import { HStack } from 'shared/ui/Stack'
+import { DropDown } from 'shared/ui/DropDown/DropDown'
+import { Avatar } from 'shared/ui/Avatar/Avatar'
 
 interface HeaderProps {
     className?: string
@@ -41,18 +44,29 @@ export const Header = memo(({ className }: HeaderProps) => {
                     className={cls.appName}
                     title="AppName"
                 />
-                <div className={cls.links}>
+                <HStack gap="32">
                     <AppLink
                         to={RoutePath.articles_create}
                         theme={AppLinkTheme.SECONDARY}>
                         {t('Нова стаття')}
                     </AppLink>
-                    <Button
-                        theme={ButtonTheme.CLEAR_INVERTED}
-                        onClick={onLogout}>
-                        {t('Вихід')}
-                    </Button>
-                </div>
+                    <DropDown
+                        trigger={
+                            <Avatar
+                                size={30}
+                                alt="avatar"
+                                src={authData.avatar}
+                            />
+                        }
+                        items={[
+                            {
+                                content: t('Профіль'),
+                                href: `${RoutePath.profile}${authData.id}`,
+                            },
+                            { content: t('Вихід'), onClick: onLogout },
+                        ]}
+                    />
+                </HStack>
             </header>
         )
     }
