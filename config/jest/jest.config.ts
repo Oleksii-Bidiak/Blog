@@ -36,7 +36,19 @@ const config: Config = {
         '\\.s?css$': 'identity-obj-proxy',
         '\\.svg': path.resolve(__dirname, '__mocks__/MockComponent.tsx'),
     },
-
+    reporters: [
+        'default',
+        [
+            'jest-html-reporters',
+            {
+                publicPath: '<rootDir>/reports/unit',
+                filename: 'report.html',
+                openReport: true,
+                inlineSource: true,
+                darkTheme: true,
+            },
+        ],
+    ],
     // Indicates whether the coverage information should be collected while executing the test
     // collectCoverage: false,
 
