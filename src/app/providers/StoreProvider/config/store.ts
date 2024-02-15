@@ -11,6 +11,7 @@ import { createReducerManager } from './reducerManager'
 import { $api } from 'shared/api/api'
 import { NavigateOptions, To } from 'react-router-dom'
 import { scrollSaveReducer } from 'features/ScrollSave'
+import { rtqApi } from 'shared/api/rtqApi'
 
 export const createReduxStore = (
     initialState?: StateSchema,
@@ -21,6 +22,7 @@ export const createReduxStore = (
         counter: counterReducer,
         user: userReduser,
         scrollSave: scrollSaveReducer,
+        [rtqApi.reducerPath]: rtqApi.reducer,
     }
 
     const reducerManager = createReducerManager(rootRedusers)
@@ -38,7 +40,7 @@ export const createReduxStore = (
                 thunk: {
                     extraArgument: extraArg,
                 },
-            }),
+            }).concat(rtqApi.middleware),
     })
 
     //  @ts-ignore

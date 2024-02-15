@@ -15,5 +15,6 @@
 	"Помилка при збереженні": "Error saving",
 	"Некоректний вік (введіть число)": "Invalid age (enter a number)",
 	"Ім'я та прізвище обов'язкові": "Name and surname are mandatory",
-	"Дані не вказані": "Data not specified"
+	"Дані не вказані": "Data not specified",
+	"Профіль не знайдено": "Profile not found"
 }

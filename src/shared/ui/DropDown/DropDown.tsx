@@ -31,16 +31,12 @@ export const DropDown = memo((props: DropDownProps) => {
 
     const menuClasses: Additionals = [mapDirectionClass[direction]]
 
-    const onClickHandler = useCallback((item: DropDownItem) => {
-        item.onClick?.()
-    }, [])
-
     return (
         <Menu as="nav" className={classNames(cls.dropDown, {}, [className])}>
             <Menu.Button className={cls.btn}>{trigger}</Menu.Button>
             <nav className={classNames(cls.menu, {}, menuClasses)}>
                 <Menu.Items className={classNames(cls.items, {}, [])}>
-                    {items.map(item => {
+                    {items.map((item, index) => {
                         const content = ({ active }: { active: boolean }) => (
                             <button
                                 onClick={item.onClick}
@@ -57,6 +53,7 @@ export const DropDown = memo((props: DropDownProps) => {
                         if (item.href) {
                             return (
                                 <Menu.Item
+                                    key={index}
                                     disabled={item.disabled}
                                     as={AppLink}
                                     to={item.href}
@@ -66,7 +63,10 @@ export const DropDown = memo((props: DropDownProps) => {
                             )
                         }
                         return (
-                            <Menu.Item disabled={item.disabled} as={Fragment}>
+                            <Menu.Item
+                                disabled={item.disabled}
+                                as={Fragment}
+                                key={index}>
                                 {content}
                             </Menu.Item>
                         )

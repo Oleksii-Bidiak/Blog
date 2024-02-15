@@ -106,7 +106,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
             <Text
                 theme={TextTheme.ERROR}
                 align={TextAlign.CENTER}
-                title={t('Виникла помилка при завантаженні статті')}
+                title={t('Виникла помилка при завантаженні')}
             />
         )
     } else {
