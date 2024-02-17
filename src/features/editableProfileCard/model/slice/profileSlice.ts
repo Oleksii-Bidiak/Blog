@@ -46,6 +46,7 @@ export const profileSlice = createSlice({
                     state.isLoading = false
                     state.data = aciton.payload
                     state.form = aciton.payload
+                    state.error = undefined
                 },
             )
             .addCase(fetchProfileData.rejected, (state, aciton) => {

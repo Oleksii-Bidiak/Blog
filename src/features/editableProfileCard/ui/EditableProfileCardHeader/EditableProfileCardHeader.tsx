@@ -51,19 +51,22 @@ export const EditableProfileCardHeader = memo(
                         {readOnly ? (
                             <Button
                                 theme={ButtonTheme.OUTLINE}
-                                onClick={onEdit}>
+                                onClick={onEdit}
+                                data-testid="EditableProfileCardHeader.EditButton">
                                 {t('Редагувати')}
                             </Button>
                         ) : (
                             <>
                                 <Button
                                     theme={ButtonTheme.OUTLINE}
-                                    onClick={onSave}>
+                                    onClick={onSave}
+                                    data-testid="EditableProfileCardHeader.CancelButton">
                                     {t('Зберегти')}
                                 </Button>
                                 <Button
                                     theme={ButtonTheme.OUTLINE_RED}
-                                    onClick={onCanselEdit}>
+                                    onClick={onCanselEdit}
+                                    data-testid="EditableProfileCardHeader.SaveButton">
                                     {t('Відміна')}
                                 </Button>
                             </>
