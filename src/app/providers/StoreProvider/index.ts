@@ -1,5 +1,5 @@
 export { StoreProvider } from './ui/StoreProvider'
-export { createReduxStore, AppDispatch } from './config/store'
+export { createReduxStore, type AppDispatch } from './config/store'
 export type {
     StateSchema,
     ReduxStoreWithManeger,

@@ -1,8 +1,6 @@
+import { ValidateProfileErrors } from '../const/const'
 import { updateProfileData } from '../services/updateProfileData/updateProfileData'
-import {
-    ProfileSchema,
-    ValidateProfileErrors,
-} from '../types/editableProfileCardSchema'
+import { ProfileSchema } from '../types/editableProfileCardSchema'
 import { profileActions, profileReducer } from './profileSlice'
 import { Country } from 'entities/Country'
 import { Currency } from 'entities/Currency'

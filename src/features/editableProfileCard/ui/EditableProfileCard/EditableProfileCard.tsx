@@ -6,9 +6,10 @@ import { getProfileError } from '../../model/selectors/getProfileError/getProfil
 import { getProfileLoading } from '../../model/selectors/getProfileLoading/getProfileLoading'
 import { getProfileReadOnly } from '../../model/selectors/getProfileReadOnly/getProfileReadOnly'
 import { getValidateProfileErrors } from '../../model/selectors/getValidateProfileErrors/getValidateProfileErrors'
-import { ValidateProfileErrors } from '../../model/types/editableProfileCardSchema'
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData'
 import { profileActions, profileReducer } from '../../model/slice/profileSlice'
+import { ValidateProfileErrors } from '../../model/const/const'
+import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader'
 import { ProfileCard } from 'entities/Profile'
 import { Currency } from 'entities/Currency'
 import { Country } from 'entities/Country'
@@ -21,7 +22,6 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { Text, TextTheme } from 'shared/ui/Text/Text'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
 import { VStack } from 'shared/ui/Stack'
-import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader'
 
 const redusers: ReducersList = {
     profile: profileReducer,

@@ -1,0 +1,6 @@
+export enum ValidateProfileErrors {
+    INNCORECT_USER_DATA = 'INNCORECT_USER_DATA',
+    INNCORECT_AGE = 'INNCORECT_AGE',
+    NO_DATA = 'NO_DATA',
+    SERVER_ERROR = 'SERVER_ERROR',
+}

@@ -6,7 +6,7 @@ import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice'
 import { getArticleDetailsData } from '../../model/selectors/getArticleDetailsData/getArticleDetailsData'
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById'
 import { getArticleDetailsError } from '../../model/selectors/getArticleDetailsError/getArticleDetailsError'
-import { ArticleBlockType, ArticleBlok } from '../../model/types/article'
+import { ArticleBlok } from '../../model/types/article'
 import { ArticleCodeBlokComponent } from '../ArticleCodeBlokComponent/ArticleCodeBlokComponent'
 import { ArticleImageBlokComponent } from '../ArticleImageBlokComponent/ArticleImageBlokComponent'
 import { ArticleTextBlokComponent } from '../ArticleTextBlokComponent/ArticleTextBlokComponent'
@@ -24,6 +24,7 @@ import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg'
 import cls from './articleDetails.module.scss'
 import { Icon } from 'shared/ui/Icon/Icon'
 import { HStack, VStack } from 'shared/ui/Stack'
+import { ArticleBlockType } from '../../model/const/const'
 
 interface ArticleDetailsProps {
     className?: string

@@ -3,11 +3,8 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
 import { Theme } from 'app/providers/ThemeProvider'
 import { ArticleDetails } from './ArticleDetails'
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator'
-import {
-    Article,
-    ArticleBlockType,
-    ArticleType,
-} from '../../model/types/article'
+import { Article } from '../../model/types/article'
+import { ArticleBlockType, ArticleType } from '../../model/const/const'
 
 export default {
     title: 'entities/ArticleDetails',

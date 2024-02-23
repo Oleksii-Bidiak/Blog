@@ -1,4 +1,4 @@
-import { memo } from 'react'
+import { memo, Suspense } from 'react'
 import { useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { articleDetailsPageReducer } from '../../model/slice/inde'
@@ -14,6 +14,7 @@ import {
 } from 'shared/lib/components/DynamicModuleLoader'
 import { VStack } from 'shared/ui/Stack'
 import cls from './articleDetailsPage.module.scss'
+import { Loader } from 'shared/ui/Loader'
 
 interface ArticleDetailsPageProps {
     className?: string
@@ -50,7 +51,9 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                 <VStack gap="16" max>
                     <ArticleDetailsPageHeader className={cls.back} />
                     <ArticleDetails className={cls.article} id={id} />
+
                     <ArticleRecommendationsList />
+
                     <ArticlesDetailsComments id={id} />
                 </VStack>
             </Page>

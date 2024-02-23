@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react'
+import { Suspense, memo, useCallback } from 'react'
 import { useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle'
@@ -11,6 +11,7 @@ import { Text, TextSize } from 'shared/ui/Text/Text'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
 import { VStack } from 'shared/ui/Stack'
+import { Loader } from 'shared/ui/Loader'
 
 interface ArticlesDetailsCommentsProps {
     id: string
@@ -39,7 +40,9 @@ export const ArticlesDetailsComments = memo(
         return (
             <VStack gap="8" max>
                 <Text size={TextSize.L} title={t('Коментарі')} />
-                <AddCommentForm onSendComment={onSendComment} />
+                <Suspense fallback={<Loader />}>
+                    <AddCommentForm onSendComment={onSendComment} />
+                </Suspense>
                 <CommentList isLoading={isLoading} comments={comments} />
             </VStack>
         )
