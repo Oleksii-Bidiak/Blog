@@ -1,7 +1,18 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/51106599-3dc3-42a3-8d9f-e33eb541fa6e/deploy-status)](https://app.netlify.com/sites/app-name-oleksii-bidiak/deploys)
 # Blog
 
 ## Description
 Blogging site
+
+## Demo
+You can view the demo [here](https://app-name-oleksii-bidiak.netlify.app)
+
+Importantly! The server has not been created yet, so json-server is used.
+Admin login: admin
+Admin password: 123
+
+User login: user
+User password: 123
 
 ## Technologies
 - HTML
