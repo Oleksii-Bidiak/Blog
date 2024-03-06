@@ -1,0 +1,11 @@
+.popover {
+    .panel {
+        position: absolute;
+        background-color: var(--listbox-bg);
+        border-radius: 12px;
+        box-shadow: 4px 4px 8px var(--listbox-bg);
+        z-index: 10;
+        overflow: hidden;
+        padding: 15px;
+    }
+}

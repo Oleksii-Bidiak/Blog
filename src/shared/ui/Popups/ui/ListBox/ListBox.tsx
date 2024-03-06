@@ -1,10 +1,11 @@
 import { Fragment, ReactNode } from 'react'
 import { Listbox as HListbox } from '@headlessui/react'
-import { Button, ButtonTheme } from '../Button'
-import { HStack } from '../Stack'
+import { Button, ButtonTheme } from '../../../Button'
+import { HStack } from '../../../Stack'
 import { Additionals, classNames } from 'shared/lib/classNames/classNames'
 import { DropDownDirection } from 'shared/types/ui'
-import cls from './listBox.module.scss'
+import popoverCls from '../../styles/popup.module.scss'
+import { mapDirectionClass } from '../../styles/const'
 
 export interface listBoxItem<T extends string> {
     value: T
@@ -21,13 +22,6 @@ interface listBoxProps<T extends string> {
     readonly?: boolean
     direction?: DropDownDirection
     label?: string
-}
-
-const mapDirectionClass: Record<DropDownDirection, string> = {
-    'bottom left': cls.optionsBottomLeft,
-    'bottom right': cls.optionsBottomRight,
-    'top right': cls.optionsTopRight,
-    'top left': cls.optionsTopLeft,
 }
 
 export const ListBox = <T extends string>(props: listBoxProps<T>) => {
@@ -51,7 +45,7 @@ export const ListBox = <T extends string>(props: listBoxProps<T>) => {
             <HListbox
                 disabled={readonly}
                 as="div"
-                className={classNames(cls.listBox, {}, adiitionals)}
+                className={classNames(popoverCls.popup, {}, adiitionals)}
                 value={value}
                 onChange={onChange}>
                 <HListbox.Button>
@@ -60,7 +54,7 @@ export const ListBox = <T extends string>(props: listBoxProps<T>) => {
                     </Button>
                 </HListbox.Button>
                 <HListbox.Options
-                    className={classNames(cls.options, {}, optionClasses)}>
+                    className={classNames(popoverCls.items, {}, optionClasses)}>
                     {items?.map(item => (
                         <HListbox.Option
                             key={item.value}
@@ -70,10 +64,11 @@ export const ListBox = <T extends string>(props: listBoxProps<T>) => {
                             {({ active, selected }) => (
                                 <li
                                     className={classNames(
-                                        cls.option,
+                                        popoverCls.item,
                                         {
-                                            [cls.active]: active,
-                                            [cls.disabled]: item.disablet,
+                                            [popoverCls.active]: active,
+                                            [popoverCls.disabled]:
+                                                item.disablet,
                                         },
                                         [],
                                     )}>

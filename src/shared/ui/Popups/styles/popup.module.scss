@@ -1,0 +1,53 @@
+.popup {
+    position: relative;
+
+    .items {
+        position: absolute;
+        background-color: var(--listbox-bg);
+        border-radius: 12px;
+        box-shadow: 4px 4px 8px var(--listbox-bg);
+        z-index: 10;
+        overflow: hidden;
+    }
+
+    .item {
+        cursor: pointer;
+        padding: 5px 20px;
+        transition: background-color 0.1s ease 0s;
+    }
+}
+
+.active {
+    background-color: var(--inverted-primary-color);
+}
+
+.disabled {
+    opacity: 0.8;
+}
+
+.btn {
+    width: 100%;
+    height: 100%;
+}
+
+.optionsBottomLeft {
+    top: 100%;
+    left: 0;
+}
+
+.optionsBottomRight {
+    top: 100%;
+    right: 0;
+}
+
+.optionsTopRight {
+    bottom: 100%;
+    right: 0;
+    box-shadow: -4px -4px 8px var(--listbox-bg);
+}
+
+.optionsTopLeft {
+    bottom: 100%;
+    left: 0;
+    box-shadow: -4px -4px 8px var(--listbox-bg);
+}
