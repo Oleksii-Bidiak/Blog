@@ -1,9 +1,6 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useTheme } from 'app/providers/ThemeProvider'
 import {
     FC,
-    MouseEvent,
     MutableRefObject,
     ReactNode,
     useCallback,
@@ -14,6 +11,7 @@ import {
 import { classNames, Mods } from 'shared/lib/classNames/classNames'
 import { Portal } from '../../Portal/Portal'
 import cls from './modal.module.scss'
+import { Overlay } from '../../Overlay/Overlay'
 
 interface ModalProps {
     className?: string
@@ -74,10 +72,6 @@ export const Modal: FC<ModalProps> = props => {
         [cls.isClosing]: isClosing,
     }
 
-    const onContetntClick = (e: MouseEvent) => {
-        e.stopPropagation()
-    }
-
     if (lazy && !isMounting) {
         return null
     }
@@ -90,11 +84,8 @@ export const Modal: FC<ModalProps> = props => {
                     theme,
                     'app_modal',
                 ])}>
-                <div className={cls.overlay} onClick={closeHandler}>
-                    <div className={cls.content} onClick={onContetntClick}>
-                        {children}
-                    </div>
-                </div>
+                <Overlay onClick={closeHandler} />
+                <div className={cls.content}>{children}</div>
             </div>
         </Portal>
     )
