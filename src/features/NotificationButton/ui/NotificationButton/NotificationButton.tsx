@@ -7,6 +7,7 @@ import { Popover } from 'shared/ui/Popups'
 import { Drawer } from 'shared/ui/Drawer/Drawer'
 import Notifications from 'shared/assets/icons/notification-20-20.svg'
 import cls from './NotificationButton.module.scss'
+import { AnimationProvider } from 'shared/lib/components/AnimationProvider'
 
 export const NotificationButton = () => {
     const [isOpen, setIsOpen] = useState(false)
@@ -34,9 +35,11 @@ export const NotificationButton = () => {
             </BrowserView>
             <MobileView>
                 {trigger}
-                <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
-                    <NotificationList />
-                </Drawer>
+                <AnimationProvider>
+                    <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
+                        <NotificationList />
+                    </Drawer>
+                </AnimationProvider>
             </MobileView>
         </>
     )
