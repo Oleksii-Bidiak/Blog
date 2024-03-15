@@ -5,12 +5,12 @@ import { fetchNextArticles } from '../../model/services/fetchNextArticles/fetchN
 import { ArticlePageFilters } from '../ArticlePageFilters/ArticlePageFilters'
 import { ArticlePageInfiniteList } from '../ArticlePageInfiniteList/ArticlePageInfiniteList'
 import { getArticlesView } from '../../model/selectors/getArticlesView/getArticlesView'
-import { Page } from 'widgets/Page/Page'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
+import { Page } from '@/widgets/Page/Page'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
 import {
     DynamicModuleLoader,
     ReducersList,
-} from 'shared/lib/components/DynamicModuleLoader'
+} from '@/shared/lib/components/DynamicModuleLoader'
 
 const reducers: ReducersList = {
     articlesPage: articlePageReducer,

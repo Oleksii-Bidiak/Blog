@@ -5,13 +5,13 @@ import {
     Reducer,
     ReducersMapObject,
 } from '@reduxjs/toolkit'
-import { counterReducer } from 'entities/Counter'
-import { userReduser } from 'entities/User'
+import { counterReducer } from '@/entities/Counter'
+import { userReduser } from '@/entities/User'
 import { createReducerManager } from './reducerManager'
-import { $api } from 'shared/api/api'
+import { $api } from '@/shared/api/api'
 import { NavigateOptions, To } from 'react-router-dom'
-import { scrollSaveReducer } from 'features/ScrollSave'
-import { rtqApi } from 'shared/api/rtqApi'
+import { scrollSaveReducer } from '@/features/ScrollSave'
+import { rtqApi } from '@/shared/api/rtqApi'
 
 export const createReduxStore = (
     initialState?: StateSchema,

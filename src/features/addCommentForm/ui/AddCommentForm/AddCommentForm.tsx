@@ -7,16 +7,20 @@ import {
     addCommentFormActions,
     addCommentFormReducer,
 } from '../../model/slice/addCommentFormSlice'
-import { Additionals, Mods, classNames } from 'shared/lib/classNames/classNames'
-import { Input } from 'shared/ui/Input/Input'
-import { Button, ButtonTheme } from 'shared/ui/Button'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
+import {
+    Additionals,
+    Mods,
+    classNames,
+} from '@/shared/lib/classNames/classNames'
+import { Input } from '@/shared/ui/Input/Input'
+import { Button, ButtonTheme } from '@/shared/ui/Button'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
 import cls from './addCommentForm.module.scss'
 import {
     DynamicModuleLoader,
     ReducersList,
-} from 'shared/lib/components/DynamicModuleLoader'
-import { HStack } from 'shared/ui/Stack'
+} from '@/shared/lib/components/DynamicModuleLoader'
+import { HStack } from '@/shared/ui/Stack'
 
 export interface AddCommentFormProps {
     className?: string

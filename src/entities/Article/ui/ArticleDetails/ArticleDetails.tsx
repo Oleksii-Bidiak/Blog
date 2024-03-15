@@ -10,20 +10,24 @@ import { ArticleBlok } from '../../model/types/article'
 import { ArticleCodeBlokComponent } from '../ArticleCodeBlokComponent/ArticleCodeBlokComponent'
 import { ArticleImageBlokComponent } from '../ArticleImageBlokComponent/ArticleImageBlokComponent'
 import { ArticleTextBlokComponent } from '../ArticleTextBlokComponent/ArticleTextBlokComponent'
-import { Additionals, Mods, classNames } from 'shared/lib/classNames/classNames'
+import {
+    Additionals,
+    Mods,
+    classNames,
+} from '@/shared/lib/classNames/classNames'
 import {
     DynamicModuleLoader,
     ReducersList,
-} from 'shared/lib/components/DynamicModuleLoader'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
-import { Text, TextAlign, TextSize, TextTheme } from 'shared/ui/Text/Text'
-import { Sceleton } from 'shared/ui/Sceleton/Sceleton'
-import { Avatar } from 'shared/ui/Avatar/Avatar'
-import EyeIcon from 'shared/assets/icons/eye-20-20.svg'
-import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg'
+} from '@/shared/lib/components/DynamicModuleLoader'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
+import { Text, TextAlign, TextSize, TextTheme } from '@/shared/ui/Text/Text'
+import { Sceleton } from '@/shared/ui/Sceleton/Sceleton'
+import { Avatar } from '@/shared/ui/Avatar/Avatar'
+import EyeIcon from '@/shared/assets/icons/eye-20-20.svg'
+import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg'
 import cls from './articleDetails.module.scss'
-import { Icon } from 'shared/ui/Icon/Icon'
-import { HStack, VStack } from 'shared/ui/Stack'
+import { Icon } from '@/shared/ui/Icon/Icon'
+import { HStack, VStack } from '@/shared/ui/Stack'
 import { ArticleBlockType } from '../../model/const/const'
 
 interface ArticleDetailsProps {

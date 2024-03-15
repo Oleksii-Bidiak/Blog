@@ -1,13 +1,17 @@
 import { memo, useMemo } from 'react'
-import { Additionals, Mods, classNames } from 'shared/lib/classNames/classNames'
+import {
+    Additionals,
+    Mods,
+    classNames,
+} from '@/shared/lib/classNames/classNames'
 import { Comment } from '../../model/types/comment'
 import cls from './commentCard.module.scss'
-import { Avatar } from 'shared/ui/Avatar/Avatar'
-import { Text } from 'shared/ui/Text/Text'
-import { Sceleton } from 'shared/ui/Sceleton/Sceleton'
-import { AppLink } from 'shared/ui/AppLink'
-import { RoutePath } from 'shared/config/routeConfig/routeConfig'
-import { VStack } from 'shared/ui/Stack'
+import { Avatar } from '@/shared/ui/Avatar/Avatar'
+import { Text } from '@/shared/ui/Text/Text'
+import { Sceleton } from '@/shared/ui/Sceleton/Sceleton'
+import { AppLink } from '@/shared/ui/AppLink'
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig'
+import { VStack } from '@/shared/ui/Stack'
 
 interface CommentCardProps {
     className?: string

@@ -1,13 +1,13 @@
 import { useCallback, useState } from 'react'
 import { BrowserView, MobileView } from 'react-device-detect'
-import { NotificationList } from 'entities/Notifications'
-import { Button } from 'shared/ui/Button'
-import { Icon } from 'shared/ui/Icon/Icon'
-import { Popover } from 'shared/ui/Popups'
-import { Drawer } from 'shared/ui/Drawer/Drawer'
-import Notifications from 'shared/assets/icons/notification-20-20.svg'
+import { NotificationList } from '@/entities/Notifications'
+import { Button } from '@/shared/ui/Button'
+import { Icon } from '@/shared/ui/Icon/Icon'
+import { Popover } from '@/shared/ui/Popups'
+import { Drawer } from '@/shared/ui/Drawer/Drawer'
+import Notifications from '@/shared/assets/icons/notification-20-20.svg'
 import cls from './NotificationButton.module.scss'
-import { AnimationProvider } from 'shared/lib/components/AnimationProvider'
+import { AnimationProvider } from '@/shared/lib/components/AnimationProvider'
 
 export const NotificationButton = () => {
     const [isOpen, setIsOpen] = useState(false)

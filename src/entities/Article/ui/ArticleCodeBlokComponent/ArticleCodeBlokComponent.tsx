@@ -1,7 +1,11 @@
 import { memo } from 'react'
-import { Additionals, Mods, classNames } from 'shared/lib/classNames/classNames'
+import {
+    Additionals,
+    Mods,
+    classNames,
+} from '@/shared/lib/classNames/classNames'
 import { ArticleCodeBlok } from '../../model/types/article'
-import { Code } from 'shared/ui/Code/Code'
+import { Code } from '@/shared/ui/Code/Code'
 import cls from './articleCodeBlokComponent.module.scss'
 
 interface ArticleCodeBlokComponentProps {

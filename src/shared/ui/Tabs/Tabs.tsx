@@ -1,5 +1,9 @@
 import { ReactNode, useCallback } from 'react'
-import { Additionals, Mods, classNames } from 'shared/lib/classNames/classNames'
+import {
+    Additionals,
+    Mods,
+    classNames,
+} from '@/shared/lib/classNames/classNames'
 import { Card, CardTheme } from '../Card/Card'
 import cls from './tabs.module.scss'
 

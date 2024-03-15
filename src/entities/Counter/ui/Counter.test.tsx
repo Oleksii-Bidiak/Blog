@@ -1,5 +1,5 @@
 import { screen, fireEvent } from '@testing-library/react'
-import { componentRender } from 'shared/lib/tests/componentRender/componentRender'
+import { componentRender } from '@/shared/lib/tests/componentRender/componentRender'
 import { Counter } from '..'
 
 describe('Sidebar', () => {
@@ -20,7 +20,7 @@ describe('Sidebar', () => {
         componentRender(<Counter />, {
             initialState: { counter: { value: 10 } },
         })
-		  fireEvent.click(screen.getByTestId('decrement-btn'))
+        fireEvent.click(screen.getByTestId('decrement-btn'))
         expect(screen.getByTestId('value-title')).toHaveTextContent('9')
     })
 })

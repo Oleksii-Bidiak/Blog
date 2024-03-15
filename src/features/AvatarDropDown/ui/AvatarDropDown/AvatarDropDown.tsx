@@ -6,11 +6,11 @@ import {
     isUserAdmin,
     isUserManager,
     userActions,
-} from 'entities/User'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
-import { Avatar } from 'shared/ui/Avatar/Avatar'
-import { DropDown } from 'shared/ui/Popups'
-import { RoutePath } from 'shared/config/routeConfig/routeConfig'
+} from '@/entities/User'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
+import { Avatar } from '@/shared/ui/Avatar/Avatar'
+import { DropDown } from '@/shared/ui/Popups'
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig'
 
 export const AvatarDropDown = memo(() => {
     const { t } = useTranslation()

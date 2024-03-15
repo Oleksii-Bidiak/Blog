@@ -4,17 +4,21 @@ import { useTranslation } from 'react-i18next'
 import { articleDetailsPageReducer } from '../../model/slice/inde'
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader'
 import { ArticlesDetailsComments } from '../ArticlesDetailsComments/ArticlesDetailsComments'
-import { Page } from 'widgets/Page/Page'
-import { ArticleRecommendationsList } from 'features/ArticleRecommendationsList'
-import { ArticleDetails } from 'entities/Article'
-import { Additionals, Mods, classNames } from 'shared/lib/classNames/classNames'
+import { Page } from '@/widgets/Page/Page'
+import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList'
+import { ArticleDetails } from '@/entities/Article'
+import {
+    Additionals,
+    Mods,
+    classNames,
+} from '@/shared/lib/classNames/classNames'
 import {
     DynamicModuleLoader,
     ReducersList,
-} from 'shared/lib/components/DynamicModuleLoader'
-import { VStack } from 'shared/ui/Stack'
+} from '@/shared/lib/components/DynamicModuleLoader'
+import { VStack } from '@/shared/ui/Stack'
 import cls from './articleDetailsPage.module.scss'
-import { Loader } from 'shared/ui/Loader'
+import { Loader } from '@/shared/ui/Loader'
 
 interface ArticleDetailsPageProps {
     className?: string

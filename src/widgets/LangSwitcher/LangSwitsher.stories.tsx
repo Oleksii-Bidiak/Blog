@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
-import { Theme } from 'app/providers/ThemeProvider'
-import { LangSwitcher} from '.'
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator'
+import { Theme } from '@/app/providers/ThemeProvider'
+import { LangSwitcher } from '.'
 
 export default {
     title: 'widget/LangSwitcher',
@@ -14,7 +14,9 @@ export default {
     },
 } as ComponentMeta<typeof LangSwitcher>
 
-const Template: ComponentStory<typeof LangSwitcher> = args => <LangSwitcher {...args} />
+const Template: ComponentStory<typeof LangSwitcher> = args => (
+    <LangSwitcher {...args} />
+)
 
 export const Light = Template.bind({})
 Light.args = {}

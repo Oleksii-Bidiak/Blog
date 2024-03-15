@@ -5,13 +5,13 @@ import { addCommentForArticle } from '../../model/services/addCommentForArticle/
 import { getArticleDetailsCommentsLoading } from '../../model/selectors/getArticleDetailsCommentsLoading/getArticleDetailsCommentsLoading'
 import { getArticleComments } from '../../model/slice/ArticleDetailsCommentSlice/ArticleDetailsCommentSlice'
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId'
-import { AddCommentForm } from 'features/addCommentForm'
-import { CommentList } from 'entities/Comment'
-import { Text, TextSize } from 'shared/ui/Text/Text'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
-import { VStack } from 'shared/ui/Stack'
-import { Loader } from 'shared/ui/Loader'
+import { AddCommentForm } from '@/features/addCommentForm'
+import { CommentList } from '@/entities/Comment'
+import { Text, TextSize } from '@/shared/ui/Text/Text'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect'
+import { VStack } from '@/shared/ui/Stack'
+import { Loader } from '@/shared/ui/Loader'
 
 interface ArticlesDetailsCommentsProps {
     id: string

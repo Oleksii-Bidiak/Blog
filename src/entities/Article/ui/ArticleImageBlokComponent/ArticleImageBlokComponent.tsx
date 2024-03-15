@@ -1,9 +1,13 @@
 import { memo } from 'react'
-import { Additionals, Mods, classNames } from 'shared/lib/classNames/classNames'
+import {
+    Additionals,
+    Mods,
+    classNames,
+} from '@/shared/lib/classNames/classNames'
 import { useTranslation } from 'react-i18next'
 import cls from './articleImageBlokComponent.module.scss'
 import { ArticleImageBlok } from '../../model/types/article'
-import { Text, TextAlign } from 'shared/ui/Text/Text'
+import { Text, TextAlign } from '@/shared/ui/Text/Text'
 
 interface ArticleImageBlokComponentProps {
     className?: string

@@ -1,8 +1,12 @@
 import { memo } from 'react'
-import { Additionals, Mods, classNames } from 'shared/lib/classNames/classNames'
+import {
+    Additionals,
+    Mods,
+    classNames,
+} from '@/shared/lib/classNames/classNames'
 import { ArticleView } from '../../model/const/const'
-import { Card } from 'shared/ui/Card/Card'
-import { Sceleton } from 'shared/ui/Sceleton/Sceleton'
+import { Card } from '@/shared/ui/Card/Card'
+import { Sceleton } from '@/shared/ui/Sceleton/Sceleton'
 import cls from './articleListItem.module.scss'
 
 interface ArticleListItemSceletonProps {

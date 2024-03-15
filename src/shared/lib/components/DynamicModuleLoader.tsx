@@ -1,11 +1,11 @@
 /* eslint-disable react/jsx-no-useless-fragment */
 import { FC, ReactNode, useEffect } from 'react'
 import { useDispatch, useStore } from 'react-redux'
-import { ReduxStoreWithManeger } from 'app/providers/StoreProvider'
+import { ReduxStoreWithManeger } from '@/app/providers/StoreProvider'
 import {
     StateSchema,
     StateSchemaKey,
-} from 'app/providers/StoreProvider/config/StateSchema'
+} from '@/app/providers/StoreProvider/config/StateSchema'
 import { Reducer } from '@reduxjs/toolkit'
 
 export type ReducersList = {

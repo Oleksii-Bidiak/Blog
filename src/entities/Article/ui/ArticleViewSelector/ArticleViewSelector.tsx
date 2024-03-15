@@ -1,10 +1,10 @@
 import { memo } from 'react'
 import { ArticleView } from '../../model/const/const'
-import ListIcon from 'shared/assets/icons/list-24-24.svg'
-import TiledIcon from 'shared/assets/icons/tiled-24-24.svg'
-import { Button } from 'shared/ui/Button'
-import { Icon } from 'shared/ui/Icon/Icon'
-import { classNames } from 'shared/lib/classNames/classNames'
+import ListIcon from '@/shared/assets/icons/list-24-24.svg'
+import TiledIcon from '@/shared/assets/icons/tiled-24-24.svg'
+import { Button } from '@/shared/ui/Button'
+import { Icon } from '@/shared/ui/Icon/Icon'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './articleViewSelector.module.scss'
 
 interface ArticleViewSelectorProps {

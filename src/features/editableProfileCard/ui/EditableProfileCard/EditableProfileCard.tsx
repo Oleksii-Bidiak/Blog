@@ -10,18 +10,18 @@ import { fetchProfileData } from '../../model/services/fetchProfileData/fetchPro
 import { profileActions, profileReducer } from '../../model/slice/profileSlice'
 import { ValidateProfileErrors } from '../../model/const/const'
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader'
-import { ProfileCard } from 'entities/Profile'
-import { Currency } from 'entities/Currency'
-import { Country } from 'entities/Country'
+import { ProfileCard } from '@/entities/Profile'
+import { Currency } from '@/entities/Currency'
+import { Country } from '@/entities/Country'
 import {
     DynamicModuleLoader,
     ReducersList,
-} from 'shared/lib/components/DynamicModuleLoader'
-import { classNames } from 'shared/lib/classNames/classNames'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
-import { Text, TextTheme } from 'shared/ui/Text/Text'
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
-import { VStack } from 'shared/ui/Stack'
+} from '@/shared/lib/components/DynamicModuleLoader'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
+import { Text, TextTheme } from '@/shared/ui/Text/Text'
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect'
+import { VStack } from '@/shared/ui/Stack'
 
 const redusers: ReducersList = {
     profile: profileReducer,

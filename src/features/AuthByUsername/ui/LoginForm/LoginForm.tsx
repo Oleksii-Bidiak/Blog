@@ -7,15 +7,15 @@ import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLogi
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword'
 import { getLoginLoading } from '../../model/selectors/getLoginLoading/getLoginLoading'
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError'
-import { classNames } from 'shared/lib/classNames/classNames'
-import { Button } from 'shared/ui/Button'
-import { Input } from 'shared/ui/Input/Input'
-import { Text, TextTheme } from 'shared/ui/Text/Text'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { Button } from '@/shared/ui/Button'
+import { Input } from '@/shared/ui/Input/Input'
+import { Text, TextTheme } from '@/shared/ui/Text/Text'
 import {
     DynamicModuleLoader,
     ReducersList,
-} from 'shared/lib/components/DynamicModuleLoader'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
+} from '@/shared/lib/components/DynamicModuleLoader'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
 import cls from './loginForm.module.scss'
 
 export interface LoginFormProps {
